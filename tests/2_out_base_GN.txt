@@ -1,0 +1,31 @@
+contactBook.Contact book empty.
+
+Phone number does not exist.
+
+contactBook.Contact added.
+
+contactBook.Contact added.
+
+Joana Dias; Joana.Dias@fct.unl.pt; 253253253
+Joana Horas; Joana.Horas@gmail.com; 213453121
+
+Joana Dias
+
+Phone number does not exist.
+
+Joana Horas
+
+contactBook.Contact added.
+
+Joana Dias; Joana.Dias@fct.unl.pt; 253253253
+Joana Horas; Joana.Horas@gmail.com; 213453121
+Joana Minutos; Joana.Minutos@gmail.com; 253253253
+
+Joana Dias
+
+Joana Dias; Joana.Dias@fct.unl.pt; 253253253
+Joana Horas; Joana.Horas@gmail.com; 213453121
+Joana Minutos; Joana.Minutos@gmail.com; 253253253
+
+Goodbye!
+

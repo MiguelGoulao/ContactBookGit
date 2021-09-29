@@ -1,0 +1,39 @@
+contactBook.Contact book empty.
+
+contactBook.Contact added.
+
+contactBook.Contact already exists.
+
+contactBook.Contact added.
+
+contactBook.Contact removed.
+
+contactBook.Contact does not exist.
+
+contactBook.Contact added.
+
+99999999
+
+contactBook.Contact does not exist.
+
+Joana@fct.unl.pt
+
+contactBook.Contact does not exist.
+
+contactBook.Contact updated.
+
+contactBook.Contact does not exist.
+
+253253253
+
+contactBook.Contact updated.
+
+contactBook.Contact does not exist.
+
+JoanaEu@tu.ele.pt
+
+Joana Horas; Joana@gmail.com; 91999999
+Joana Dias; JoanaEu@tu.ele.pt; 253253253
+
+Goodbye!
+

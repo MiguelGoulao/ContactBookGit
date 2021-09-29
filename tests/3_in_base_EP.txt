@@ -1,0 +1,28 @@
+LC
+EP
+AC
+Joana Segundos
+214872134
+Joana.Dias@fct.unl.pt
+AC
+Joana Dias
+253253253
+Joana.Dias@fct.unl.pt
+AC
+Joana Horas
+213453121
+Joana.Horas@gmail.com
+LC
+EP
+AC
+Joana Minutos
+253253253
+Joana.Minutos@gmail.com
+LC
+EP
+SP
+Joana Minutos
+253253254
+EP
+LC
+Q

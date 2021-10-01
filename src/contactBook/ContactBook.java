@@ -115,7 +115,16 @@ public class ContactBook {
     }
 
     public boolean hasEqualNr(){
-        return false;
+        boolean f = false ;
+
+        for (int i = 0 ; i < counter-1;i++){
+            for(int j = i+1 ;j < counter; j++ ){
+                if(contacts[i].getPhone() == contacts[j].getPhone()){
+                    f = true;
+                }
+            }
+        }
+    return f;
     }
 
 }

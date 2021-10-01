@@ -110,4 +110,12 @@ public class ContactBook {
         return contacts[currentContact++];
     }
 
+    public String getNameByNumber(int num) {
+        return contacts[searchIndexNumber(num)].getName();
+    }
+
+    public boolean hasEqualNr(){
+        return false;
+    }
+
 }

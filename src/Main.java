@@ -159,7 +159,20 @@ public class Main {
         else System.out.println(BOOK_EMPTY);
     }
 
-    public static void searchContact(Scanner in, ContactBook cBook) {}
+    public static void searchContact(Scanner in, ContactBook cBook) {
+        int phone = in.nextInt(); in.nextLine();
+        if (cBook.hasContactPhone(phone)) {
+            System.out.println(cBook.getName(phone));
+        }
+        else System.out.println(PHONE_NOT_EXISTS);
+    }
 
-    public static void verifyContact(ContactBook cBook) {}
+    public static void verifyContact(ContactBook cBook) {
+        if(cBook.samePhone()) {
+            System.out.println(SAME_PHONES);
+        }
+        else {
+            System.out.println(DIFFERENT_PHONES);
+        }
+    }
 }

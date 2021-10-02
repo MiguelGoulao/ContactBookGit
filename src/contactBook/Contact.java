@@ -9,6 +9,7 @@ public class Contact {
         this.name = name;
         this.phone = phone;
         this.email = email;
+        //comment to test new branch bj.ramos
     }
 
     public String getName() {

@@ -128,4 +128,5 @@ public class ContactBook {
     public String getName(int phone) {
         return contacts[searchIndexPhone(phone)].getName();
     }
+
 }

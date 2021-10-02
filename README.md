@@ -1,4 +1,8 @@
 # ContactBookGit
-This is a starter kit for the first lab of the Software Engineering Course.
-Fork this project to make your own version of it.
+First assigment of Software Engineering lab done by:
+<p>58010 - Hugo Pereira
+<p>58081 - Ana Canelhas
+<p>59187 - Bernardo Calvo
+
+
 

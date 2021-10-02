@@ -1,6 +1,6 @@
 package contactBook;
 
-import contactBook.Contact;
+import contactBook.*;
 
 public class ContactBook {
     static final int DEFAULT_SIZE = 100;
@@ -48,6 +48,16 @@ public class ContactBook {
     //Pre: name != null && hasContact(name)
     public String getEmail(String name) {
         return contacts[searchIndex(name)].getEmail();
+    }
+
+    public Contact getContact(int phone) {
+        initializeIterator();
+        Contact c;
+        while(hasNext()) {
+            c = next();
+            if(c.getPhone() == phone) return c;
+        }
+        return null;
     }
 
     //Pre: name != null && hasContact(name)

@@ -1,5 +1,5 @@
-import contactBook.Contact;
-import contactBook.ContactBook;
+
+import contactBook.*;
 
 import java.util.Scanner;
 

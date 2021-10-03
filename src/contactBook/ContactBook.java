@@ -93,4 +93,15 @@ public class ContactBook {
         return contacts[currentContact++];
     }
 
+    public boolean existsDuplicatePhone() {
+        return false;
+    }
+
+    public boolean hasPhone(int phone) {
+        return false;
+    }
+
+    public String getName() {
+        return null;
+    }
 }

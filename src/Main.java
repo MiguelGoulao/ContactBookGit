@@ -89,7 +89,7 @@ public class Main {
         if (!cBook.hasPhone(phone))
             System.out.println(PHONE_NOT_EXISTS);
         else {
-            System.out.println(cBook.getName());
+            System.out.println(cBook.getNameP(phone));
         }
     }
 

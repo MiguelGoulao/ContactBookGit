@@ -117,4 +117,8 @@ public class ContactBook {
     public String getName() {
         return "1";
     }
+
+    public String getNameP(int phone) {
+        return contacts[searchIndexP(phone)].getName();
+    }
 }

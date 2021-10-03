@@ -94,6 +94,11 @@ public class ContactBook {
     }
 
     public boolean existsDuplicatePhone() {
+        for (int i = counter - 1; i > 0; i--) {
+            int ii = searchIndexP(contacts[i].getPhone());
+            if (ii != i && ii != -1)
+                return true;
+        }
         return false;
     }
 
@@ -112,10 +117,6 @@ public class ContactBook {
                 i++;
         if (found) result = i;
         return result;
-    }
-
-    public String getName() {
-        return "1";
     }
 
     public String getNameP(int phone) {

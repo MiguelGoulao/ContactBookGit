@@ -93,6 +93,12 @@ public class ContactBook {
         return contacts[currentContact++];
     }
 
+    /**
+     * Return the oldest contact associated with the given phone.
+     *
+     * @param phone of the contact requesting user.
+     * @return oldest contact of the requesting user.
+     */
     public Contact getContact(int phone) {
         initializeIterator();
         while(hasNext()) {

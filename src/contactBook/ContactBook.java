@@ -102,6 +102,6 @@ public class ContactBook {
     }
 
     public String getName() {
-        return null;
+        return "1";
     }
 }

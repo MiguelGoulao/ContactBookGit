@@ -60,6 +60,10 @@ public class ContactBook {
         contacts[searchIndex(name)].setEmail(email);
     }
 
+    public String getName(int phone) {
+        return contacts[searchPhone(phone)].getName();
+    }
+
     //Check if exist two contacts wih the same phone number
     public boolean samePhone() {
         boolean found = false;

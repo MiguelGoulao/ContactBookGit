@@ -20,6 +20,7 @@ public class Main {
     //Constantes que definem as mensagens para o utilizador
     public static final String CONTACT_EXISTS = "contactBook.Contact already exists.";
     public static final String NAME_NOT_EXIST = "contactBook.Contact does not exist.";
+    public static final String PHONE_NOT_EXISTS = "Phone number does not exist.";
     public static final String CONTACT_ADDED = "contactBook.Contact added.";
     public static final String CONTACT_REMOVED = "contactBook.Contact removed.";
     public static final String CONTACT_UPDATED = "contactBook.Contact updated.";
@@ -56,7 +57,7 @@ public class Main {
                     listAllContacts(cBook);
                     break;
                 case GET_NAME:
-                    getName(cBook);
+                    getName(in, cBook);
                     break;
                 case EXISTS_PHONE:
                     existsPhone(cBook);
@@ -70,6 +71,20 @@ public class Main {
         System.out.println(QUIT_MSG);
         System.out.println();
         in.close();
+    }
+
+    private static void existsPhone(ContactBook cBook) {
+    }
+
+    private static void getName(Scanner in, ContactBook cBook) {
+        int phone;
+
+        phone = in.nextInt(); in.nextLine();
+        if (!cBook.hasPhone(phone))
+            System.out.println(PHONE_NOT_EXISTS);
+        else {
+            System.out.println(cBook.getName());
+        }
     }
 
     private static String getCommand(Scanner in) {

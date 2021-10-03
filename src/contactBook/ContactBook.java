@@ -98,7 +98,20 @@ public class ContactBook {
     }
 
     public boolean hasPhone(int phone) {
-        return false;
+        return searchIndexP(phone) >= 0;
+    }
+
+    private int searchIndexP(int phone) {
+        int i = 0;
+        int result = -1;
+        boolean found = false;
+        while (i<counter && !found)
+            if (contacts[i].getPhone() == phone)
+                found = true;
+            else
+                i++;
+        if (found) result = i;
+        return result;
     }
 
     public String getName() {

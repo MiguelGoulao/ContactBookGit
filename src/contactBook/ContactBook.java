@@ -73,6 +73,19 @@ public class ContactBook {
         return null;
     }
 
+    public boolean samePhoneNumber() {
+        boolean samePhone = false;
+        for(int i = 0; i < counter && !samePhone; i++) {
+            for(int j = i+1; j < counter; j++) {
+                if(contacts[i].getPhone() == contacts[j].getPhone()) {
+                    samePhone = true;
+                    break;
+                }
+            }
+        }
+        return samePhone;
+    }
+
     private int searchIndex(String name) {
         int i = 0;
         int result = -1;

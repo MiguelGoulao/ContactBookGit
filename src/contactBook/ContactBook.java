@@ -20,6 +20,23 @@ public class ContactBook {
         return searchIndex(name) >= 0;
     }
 
+    public boolean hasSameNumber() {
+        boolean found = false;
+        for (int i = 0; i < contacts.length && !found; i++) {
+            for (int j = i+1; j < contacts.length && !found; j++) {
+                if(contacts[i].getPhone() == contacts[j].getPhone()) {
+                    found = true;
+                    return true;
+                }
+            }
+        }
+        if(!found) {
+            return false;
+        } else return true;
+
+
+    }
+
     public int getNumberOfContacts() {
         return counter;
     }

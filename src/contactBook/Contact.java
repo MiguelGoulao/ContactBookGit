@@ -1,5 +1,11 @@
 package contactBook;
 
+/**
+ * @author Pedro Caldeirao - 57945
+ * @author Pedro Perdigao - 58165
+ * @author Daniel Silva - 57548
+ */
+
 public class Contact {
     private String name;
     private int phone;

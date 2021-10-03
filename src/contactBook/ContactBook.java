@@ -2,6 +2,13 @@ package contactBook;
 
 import contactBook.Contact;
 
+/**
+ * @author Pedro Caldeirao - 57945
+ * @author Pedro Perdigao - 58165
+ * @author Daniel Silva - 57548
+ */
+
+
 public class ContactBook {
     static final int DEFAULT_SIZE = 100;
 

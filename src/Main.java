@@ -158,20 +158,11 @@ public class Main {
         int phone;
         phone = in.nextInt();
         in.nextLine();
-        if (cBook.getNumberOfContacts() != 0) {
-            cBook.initializeIterator();
-            boolean found = false;
-            while (cBook.hasNext() && found == false) {
-                Contact c = cBook.next();
-                if (phone == c.getPhone()) {
-                    System.out.println(c.getName());
-                    found = true;
-                    break;
-                }
-            }
-            if (found == false)
-                System.out.println(PHONE_NOT_EXISTS);
-        } else System.out.println(PHONE_NOT_EXISTS);
+        Contact contact = cBook.lookupContact(phone);
+        if (contact != null)
+            System.out.println(contact.getName());
+        else
+            System.out.println(PHONE_NOT_EXISTS);
     }
 
     private static void phoneSameNumber(ContactBook cBook) {

@@ -61,12 +61,11 @@ public class ContactBook {
     }
 
     public Contact lookupContact(int phone) {
-        for(int i = 0; i < counter; i++){
+        for(int i = 0; i < contacts.length; i++){
             if(contacts[i].getPhone() == phone) {
-                    return contacts[i];
+                return contacts[i];
             }
         }
-
         return null;
     }
 

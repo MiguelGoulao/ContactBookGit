@@ -93,18 +93,6 @@ public class ContactBook {
         return contacts[currentContact++];
     }
 
-    private int searchIndexNum (int phone) {
-        int i = 0;
-
-        while (i<counter)
-            if (contacts[i].getPhone() == phone)
-                return i;
-            else
-                i++;
-
-        return -1;
-    }
-
     public String getContact (int phone) {
         int i = 0;
         while (i<counter)

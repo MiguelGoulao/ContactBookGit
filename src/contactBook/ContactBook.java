@@ -88,9 +88,21 @@ public class ContactBook {
         return (currentContact >= 0 ) && (currentContact < counter);
     }
 
+    /*
+    * return true if exist
+    * return false if not exist
+    * */
+    public boolean checkRepeatedPhones(){
+        for(int i=0;i< this.counter;i++){
+            for(int j=i+1;j< this.counter;j++){
+                if(contacts[i].getPhone() == contacts[j].getPhone())
+                    return true;
+            }
+        }
+        return false;
+    }
     //Pre: hasNext()
     public Contact next() {
         return contacts[currentContact++];
     }
-
 }

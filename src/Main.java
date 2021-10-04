@@ -154,6 +154,7 @@ public class Main {
         } else System.out.println(BOOK_EMPTY);
     }
 
+    // Command GN
     private static void contactGivenNumber(Scanner in, ContactBook cBook) {
         int phone;
         phone = in.nextInt();
@@ -165,6 +166,7 @@ public class Main {
             System.out.println(PHONE_NOT_EXISTS);
     }
 
+    // Command SN
     private static void phoneSameNumber(ContactBook cBook) {
         if (cBook.equalPhone())
             System.out.println(REPEATED_NUMBER);

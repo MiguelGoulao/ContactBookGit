@@ -56,10 +56,10 @@ public class Main {
                     listAllContacts(cBook);
                     break;
                 case GET_NUMBER:
-                    listContactsBasedOnNumber(cbook);
+                    getContactUsingNumber(cBook);
                     break;
                 case REPEATED_PHONES:
-                    repeated_phones(cbook);
+                    repeated_phones(cBook);
                     break;
                 default:
                     System.out.println(COMMAND_ERROR);
@@ -156,11 +156,11 @@ public class Main {
         else System.out.println(BOOK_EMPTY);
     }
 
-    private static void listContactsBasedOnNumber(ContactBook cBook) {
+    private static void getContactUsingNumber(ContactBook cBook) {
 
     }
 
-    private static void repeated_phones(ContactBook cbook) {
+    private static void repeated_phones(ContactBook cBook) {
 
     }
 }

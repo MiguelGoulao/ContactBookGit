@@ -59,7 +59,7 @@ public class Main {
                     getContactUsingNumber(cBook);
                     break;
                 case REPEATED_PHONES:
-                    repeated_phones(cBook);
+                    repeatedPhones(cBook);
                     break;
                 default:
                     System.out.println(COMMAND_ERROR);
@@ -160,7 +160,10 @@ public class Main {
 
     }
 
-    private static void repeated_phones(ContactBook cBook) {
-
+    private static void repeatedPhones(ContactBook cBook) {
+        if (cBook.repeatedPhones())
+            System.out.println("There are contacts that share phone numbers.");
+        else
+            System.out.println("All contacts have different phone numbers.");
     }
 }

@@ -66,15 +66,16 @@ public class ContactBook {
     public Contact getContact(int phone) {
         int i = 0;
         boolean found = false;
-        Contact c = contacts[i];
+        Contact cfinal = null;
         while(i<counter && !found) {
+            Contact c = contacts[i];
             if (c.getPhone() == phone) {
+                cfinal = c;
                 found = true;
             }
-            else
-                i++;
+            i++;
         }
-        return c;
+        return cfinal;
     }
     private int searchIndex(String name) {
         int i = 0;

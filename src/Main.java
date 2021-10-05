@@ -162,7 +162,7 @@ public class Main {
     private static void getContactByPhone(ContactBook contactBook, Scanner in) {
         int phone = in.nextInt(); in.nextLine();
 
-        String name = "not implemented"; //contactBook.getContact(phone); TODO
+        String name = contactBook.getContact(phone);
 
         if (name == null)
             System.out.println(PHONE_NOT_FOUND);
@@ -171,7 +171,7 @@ public class Main {
     }
 
     private static void existPhoneConflict(ContactBook contactBook) {
-        if (false) //contactBook.hasPhoneConflicts()) TODO
+        if (contactBook.hasPhoneConflicts())
             System.out.println(PHONE_CONFLICT);
         else
             System.out.println(NO_PHONE_CONFLICT);

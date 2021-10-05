@@ -2,6 +2,8 @@
 import contactBook.ContactBook;
 import contactBook.Contact;
 
+import java.util.Arrays;
+import java.util.Iterator;
 import java.util.Scanner;
 
 
@@ -191,6 +193,23 @@ public class Main {
      * @param cBook - repository of contacts
      */
     private static void lookForSameNumber(ContactBook cBook) {
+        boolean found = false;
+        if (cBook.getNumberOfContacts() != 0) {
+            cBook.initializeIterator();
+            while( cBook.hasNext() && !found) {
+                Contact c = cBook.next();
+                //Iterator<Contact> it = Arrays.stream(cBook.getContacts()).iterator();
+                Contact[] contacts = cBook.getContacts();
+                for(Contact s : contacts) {
+                    if (s != null && !c.getName().equalsIgnoreCase(s.getName()) && c.getPhone() == s.getPhone()) {
+                        found = true;
+                        System.out.println(SAME_NUMBER);
+                    }
+                }
+            }
+
+        }
+        if(!found) System.out.println(DIFF_PHONES);
     }
 
 }

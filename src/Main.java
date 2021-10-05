@@ -58,7 +58,7 @@ public class Main {
                 case SAME_PHONE_NUMBER:
                     hasSamePhoneNumber(cBook);
                 case CONTACT_WITH_NUMBER:
-                    getContactWithNumber(cBook);
+                    getContactWithNumber(in, cBook);
                 default:
                     System.out.println(COMMAND_ERROR);
             }
@@ -158,7 +158,7 @@ public class Main {
 
     }
 
-    private static void getContactWithNumber(ContactBook cBook){
+    private static void getContactWithNumber(Scanner in, ContactBook cBook){
 
     }
 

@@ -1,5 +1,4 @@
 package contactBook;
-
 import contactBook.Contact;
 
 public class ContactBook {
@@ -92,5 +91,6 @@ public class ContactBook {
     public Contact next() {
         return contacts[currentContact++];
     }
+
 
 }

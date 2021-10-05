@@ -1,5 +1,6 @@
-import contactBook.Contact;
+
 import contactBook.ContactBook;
+import contactBook.Contact;
 
 import java.util.Scanner;
 
@@ -17,6 +18,7 @@ public class Main {
     public static final String SAME_PHONE     = "EP";
     public static final String QUIT           = "Q";
 
+
     //Constantes que definem as mensagens para o utilizador
     public static final String CONTACT_EXISTS = "contactBook.Contact already exists.";
     public static final String NAME_NOT_EXIST = "contactBook.Contact does not exist.";
@@ -29,6 +31,7 @@ public class Main {
     public static final String DIFF_PHONES = "All contacts have different phone numbers.";
     public static final String QUIT_MSG = "Goodbye!";
     public static final String COMMAND_ERROR = "Unknown command.";
+
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
@@ -166,7 +169,20 @@ public class Main {
      * @param cBook - repository of contacts
      */
     private static void getNumber(Scanner in, ContactBook cBook) {
+        int phone = in.nextInt(); in.nextLine();
+        boolean found = false;
+        if (cBook.getNumberOfContacts() != 0) {
+            cBook.initializeIterator();
+            while( cBook.hasNext() && !found) {
+                Contact c = cBook.next();
+                if (c.getPhone() == phone) {
+                    found = true;
+                    System.out.println(c.getName());
+                }
+            }
+        }
 
+        if(!found) System.out.println(NUMBER_NOT_EXIST);
     }
 
     /**

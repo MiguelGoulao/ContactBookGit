@@ -36,3 +36,4 @@ public class Contact {
         return name.equals(otherContact.getName());
     }
 }
+

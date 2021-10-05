@@ -14,16 +14,18 @@ public class Main {
     public static final String SET_EMAIL      = "SE";
     public static final String LIST_CONTACTS  = "LC";
     public static final String QUIT           = "Q";
+    public static final String LOOK_UP = "GN";
 
     //Constantes que definem as mensagens para o utilizador
-    public static final String CONTACT_EXISTS = "contactBook.Contact already exists.";
-    public static final String NAME_NOT_EXIST = "contactBook.Contact does not exist.";
-    public static final String CONTACT_ADDED = "contactBook.Contact added.";
-    public static final String CONTACT_REMOVED = "contactBook.Contact removed.";
-    public static final String CONTACT_UPDATED = "contactBook.Contact updated.";
-    public static final String BOOK_EMPTY = "contactBook.Contact book empty.";
+    public static final String CONTACT_EXISTS = "contactBook.contactBook.Contact already exists.";
+    public static final String NAME_NOT_EXIST = "contactBook.contactBook.Contact does not exist.";
+    public static final String CONTACT_ADDED = "contactBook.contactBook.Contact added.";
+    public static final String CONTACT_REMOVED = "contactBook.contactBook.Contact removed.";
+    public static final String CONTACT_UPDATED = "contactBook.contactBook.Contact updated.";
+    public static final String BOOK_EMPTY = "contactBook.contactBook.Contact book empty.";
     public static final String QUIT_MSG = "Goodbye!";
     public static final String COMMAND_ERROR = "Unknown command.";
+    public static final String PHONE_NOT_EXIST = "Phone number does not exist.";
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
@@ -53,6 +55,9 @@ public class Main {
                 case LIST_CONTACTS:
                     listAllContacts(cBook);
                     break;
+                case LOOK_UP:
+                    lookUpContact(in,cBook);
+                    break;
                 default:
                     System.out.println(COMMAND_ERROR);
             }
@@ -69,6 +74,23 @@ public class Main {
 
         input = in.nextLine().toUpperCase();
         return input;
+    }
+
+    private static void lookUpContact(Scanner in, ContactBook cBook) {
+        int phone;
+        phone = in.nextInt(); in.nextLine();
+
+        //The operation receives a phone number
+        //and returns the contact with that given number.
+
+        // if phone exists
+        if (){
+        //In case there are several contacts with that same phone number,
+        //the oldest contact is returned.
+        }
+        //The operation fails if: (1) the phone number does not match any contact
+        // ("Phone number does not exist.").
+        else System.out.println(PHONE_NOT_EXIST);
     }
 
     private static void addContact(Scanner in, ContactBook cBook) {

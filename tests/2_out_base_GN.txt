@@ -1,10 +1,10 @@
-contactBook.Contact book empty.
+contactBook.contactBook.Contact book empty.
 
 Phone number does not exist.
 
-contactBook.Contact added.
+contactBook.contactBook.Contact added.
 
-contactBook.Contact added.
+contactBook.contactBook.Contact added.
 
 Joana Dias; Joana.Dias@fct.unl.pt; 253253253
 Joana Horas; Joana.Horas@gmail.com; 213453121
@@ -15,7 +15,7 @@ Phone number does not exist.
 
 Joana Horas
 
-contactBook.Contact added.
+contactBook.contactBook.Contact added.
 
 Joana Dias; Joana.Dias@fct.unl.pt; 253253253
 Joana Horas; Joana.Horas@gmail.com; 213453121

@@ -30,6 +30,7 @@ public class Main {
     public static final String COMMAND_ERROR = "Unknown command.";
     public static final String DUPLICATE_NUMBERS = "There are contacts that share phone numbers";
     public static final String NO_DUPLICATE_NUMBERS = "All contacts have different phone numbers.";
+    public static final String NUMBER_NOT_EXISTS = "Phone number does not exist.";
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
@@ -161,7 +162,19 @@ public class Main {
     }
 
     private static void getContact(Scanner in, ContactBook cBook){
+        int phone;
+        Contact contact;
+        phone = in.nextInt(); in.nextLine();
 
+        if(cBook.hasPhone(phone)){
+            contact = cBook.getContact(phone);
+            System.out.println(contact.getName());
+        }
+        else{
+            System.out.println(NUMBER_NOT_EXISTS);
+        }
+
+        //getContact();
     }
     private static void checkRepeatedPhones(ContactBook cBook){
         if(cBook.checkRepeatedPhones()){

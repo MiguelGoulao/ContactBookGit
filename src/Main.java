@@ -13,6 +13,8 @@ public class Main {
     public static final String SET_PHONE      = "SP";
     public static final String SET_EMAIL      = "SE";
     public static final String LIST_CONTACTS  = "LC";
+    public static final String SAME_PHONE_NUMBER = "EP";
+    public static final String CONTACT_WITH_NUMBER= "GN";
     public static final String QUIT           = "Q";
 
     //Constantes que definem as mensagens para o utilizador
@@ -53,6 +55,10 @@ public class Main {
                 case LIST_CONTACTS:
                     listAllContacts(cBook);
                     break;
+                case SAME_PHONE_NUMBER:
+                    hasSamePhoneNumber(cBook);
+                case CONTACT_WITH_NUMBER:
+                    getContactWithNumber(cBook);
                 default:
                     System.out.println(COMMAND_ERROR);
             }
@@ -147,4 +153,14 @@ public class Main {
         }
         else System.out.println(BOOK_EMPTY);
     }
+
+    private static void hasSamePhoneNumber(ContactBook cBook){
+
+    }
+
+    private static void getContactWithNumber(ContactBook cBook){
+
+    }
+
+
 }

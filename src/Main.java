@@ -163,18 +163,14 @@ public class Main {
 
     private static void getContact(Scanner in, ContactBook cBook){
         int phone;
-        Contact contact;
         phone = in.nextInt(); in.nextLine();
 
         if(cBook.hasPhone(phone)){
-            contact = cBook.getContact(phone);
-            System.out.println(contact.getName());
+            System.out.println(cBook.getContact(phone).getName());
         }
         else{
             System.out.println(NUMBER_NOT_EXISTS);
         }
-
-        //getContact();
     }
     private static void checkRepeatedPhones(ContactBook cBook){
         if(cBook.checkRepeatedPhones()){

@@ -93,4 +93,17 @@ public class ContactBook {
         return contacts[currentContact++];
     }
 
+    public boolean checkDuplicateNumbers(){
+        initializeIterator();
+        while(hasNext()){
+            for(int i=0; i<counter ; i++) {
+                if (contacts[currentContact].equalsNumber(contacts[i]) && currentContact!=i) {
+                    return true;
+                }
+            }
+            next();
+        }
+        return false;
+    }
+
 }

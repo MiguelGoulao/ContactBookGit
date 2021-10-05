@@ -20,6 +20,8 @@ public class ContactBook {
         return searchIndex(name) >= 0;
     }
 
+    public boolean hasPhone(int phone) { return searchPhoneIndex(phone) >= 0; }
+
     public int getNumberOfContacts() {
         return counter;
     }
@@ -60,12 +62,39 @@ public class ContactBook {
         contacts[searchIndex(name)].setEmail(email);
     }
 
+    //Pre: hasPhone(phone)
+    public Contact getContact(int phone) {
+        int i = 0;
+        boolean found = false;
+        Contact cfinal = null;
+        while(i<counter && !found) {
+            Contact c = contacts[i];
+            if (c.getPhone() == phone) {
+                cfinal = c;
+                found = true;
+            }
+            i++;
+        }
+        return cfinal;
+    }
     private int searchIndex(String name) {
         int i = 0;
         int result = -1;
         boolean found = false;
         while (i<counter && !found)
             if (contacts[i].getName().equals(name))
+                found = true;
+            else
+                i++;
+        if (found) result = i;
+        return result;
+    }
+    private int searchPhoneIndex(int phone) {
+        int i = 0;
+        int result = -1;
+        boolean found = false;
+        while (i<counter && !found)
+            if (contacts[i].getPhone() == phone)
                 found = true;
             else
                 i++;
@@ -88,9 +117,21 @@ public class ContactBook {
         return (currentContact >= 0 ) && (currentContact < counter);
     }
 
+    /*
+    * return true if exist
+    * return false if not exist
+    * */
+    public boolean checkRepeatedPhones(){
+        for(int i=0;i< this.counter;i++){
+            for(int j=i+1;j< this.counter;j++){
+                if(contacts[i].getPhone() == contacts[j].getPhone())
+                    return true;
+            }
+        }
+        return false;
+    }
     //Pre: hasNext()
     public Contact next() {
         return contacts[currentContact++];
     }
-
 }

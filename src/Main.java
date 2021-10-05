@@ -1,3 +1,9 @@
+/*
+ * 58010 - Hugo Pereira
+ * 58081 - Ana Canelhas
+ * 59187 - Bernardo Calvo
+ */
+
 import contactBook.Contact;
 import contactBook.ContactBook;
 

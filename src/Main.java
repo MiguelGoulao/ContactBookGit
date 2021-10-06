@@ -160,7 +160,35 @@ public class Main {
     }
 
     private static void checkSharedNumbers(ContactBook cBook) {
+        int counter = 0;
+        int contacts = cBook.getNumberOfContacts();
 
+        if(contacts > 1){
+            for(int i = 0; i < contacts - 1; i++){
+                cBook.initializeIterator();
+                if(i > 0){
+                    for(int k = 0; k < i; k++){
+                        cBook.next();
+                    }
+                }
+
+                Contact aux;
+                aux = cBook.next();
+                for(int j = i + 1; j < contacts; j++){
+                    Contact c;
+                    c = cBook.next();
+                    if(aux.getPhone() == c.getPhone()){
+                        counter++;
+                    }
+                }
+            }
+        }
+
+        if(counter > 0){
+            System.out.println(SHARED_PHONES);
+        } else {
+            System.out.println(DIFF_PHONES);
+        }
     }
 
     private static void getContactByGivenNumber(Scanner in, ContactBook cBook) {
@@ -168,7 +196,7 @@ public class Main {
         String name = "";
         int check = 0;
 
-        phone = in.nextInt();
+        phone = in.nextInt();in.nextLine();
 
         if(cBook.getNumberOfContacts() != 0){
             cBook.initializeIterator();

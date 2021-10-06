@@ -93,4 +93,25 @@ public class ContactBook {
         return contacts[currentContact++];
     }
 
+    public String getContact (int phone) {
+        int i = 0;
+        while (i<counter)
+            if (contacts[i].getPhone() == phone)
+                return contacts[i].getName();
+            else
+                i++;
+
+        return null;
+    }
+
+    public boolean hasPhoneConflicts() {
+        for (int i = 0; i < counter - 1; i++){
+            for (int j = i + 1; j < counter; j++){
+                if (contacts[i].getPhone() == contacts[j].getPhone())
+                    return true;
+            }
+        }
+
+        return false;
+    }
 }

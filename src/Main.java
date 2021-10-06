@@ -6,14 +6,16 @@ import java.util.Scanner;
 
 public class Main {
     //Constantes que definem os comandos
-    public static final String ADD_CONTACT    = "AC";
-    public static final String REMOVE_CONTACT = "RC";
-    public static final String GET_PHONE      = "GP";
-    public static final String GET_EMAIL      = "GE";
-    public static final String SET_PHONE      = "SP";
-    public static final String SET_EMAIL      = "SE";
-    public static final String LIST_CONTACTS  = "LC";
-    public static final String QUIT           = "Q";
+    public static final String ADD_CONTACT          = "AC";
+    public static final String REMOVE_CONTACT       = "RC";
+    public static final String GET_PHONE            = "GP";
+    public static final String GET_EMAIL            = "GE";
+    public static final String SET_PHONE            = "SP";
+    public static final String SET_EMAIL            = "SE";
+    public static final String LIST_CONTACTS        = "LC";
+    public static final String CONTACT_BY_PHONE     = "GN";
+    public static final String EXIST_PHONE_CONFLICT = "EP";
+    public static final String QUIT                 = "Q";
 
     //Constantes que definem as mensagens para o utilizador
     public static final String CONTACT_EXISTS = "contactBook.Contact already exists.";
@@ -21,6 +23,9 @@ public class Main {
     public static final String CONTACT_ADDED = "contactBook.Contact added.";
     public static final String CONTACT_REMOVED = "contactBook.Contact removed.";
     public static final String CONTACT_UPDATED = "contactBook.Contact updated.";
+    public static final String PHONE_NOT_FOUND = "Phone number does not exist.";
+    public static final String NO_PHONE_CONFLICT = "All contacts have different phone numbers.";
+    public static final String PHONE_CONFLICT = "There are contacts that share phone numbers.";
     public static final String BOOK_EMPTY = "contactBook.Contact book empty.";
     public static final String QUIT_MSG = "Goodbye!";
     public static final String COMMAND_ERROR = "Unknown command.";
@@ -52,6 +57,12 @@ public class Main {
                     break;
                 case LIST_CONTACTS:
                     listAllContacts(cBook);
+                    break;
+                case CONTACT_BY_PHONE:
+                    getContactByPhone(cBook, in);
+                    break;
+                case EXIST_PHONE_CONFLICT:
+                    existPhoneConflict(cBook);
                     break;
                 default:
                     System.out.println(COMMAND_ERROR);
@@ -146,5 +157,24 @@ public class Main {
             }
         }
         else System.out.println(BOOK_EMPTY);
+    }
+
+    private static void getContactByPhone(ContactBook contactBook, Scanner in) {
+        int phone = in.nextInt(); in.nextLine();
+
+        String name = contactBook.getContact(phone);
+
+        if (name == null)
+            System.out.println(PHONE_NOT_FOUND);
+        else
+            System.out.println(name);
+    }
+
+    private static void existPhoneConflict(ContactBook contactBook) {
+        if (contactBook.hasPhoneConflicts())
+            System.out.println(PHONE_CONFLICT);
+        else
+            System.out.println(NO_PHONE_CONFLICT);
+
     }
 }

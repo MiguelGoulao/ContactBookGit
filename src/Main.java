@@ -197,7 +197,7 @@ public class Main {
                 Contact c = cBook.next();
                 Contact[] contacts = cBook.getContacts();
                 for(Contact s : contacts) {
-                    if (s != null && !c.getName().equalsIgnoreCase(s.getName()) && c.getPhone() == s.getPhone()) {
+                    if (s != null && !c.equals(s) && c.getPhone() == s.getPhone()) {
                         found = true;
                         System.out.println(SAME_NUMBER);
                     }

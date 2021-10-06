@@ -1,5 +1,4 @@
-import contactBook.Contact;
-import contactBook.ContactBook;
+import contactBook.*;
 
 import java.util.Scanner;
 
@@ -13,11 +12,16 @@ public class Main {
     public static final String SET_PHONE      = "SP";
     public static final String SET_EMAIL      = "SE";
     public static final String LIST_CONTACTS  = "LC";
+    public static final String GIVEN_NUMBER = "GN";
+    public static final String EQUAL_PHONES = "EP";
     public static final String QUIT           = "Q";
 
     //Constantes que definem as mensagens para o utilizador
     public static final String CONTACT_EXISTS = "contactBook.Contact already exists.";
     public static final String NAME_NOT_EXIST = "contactBook.Contact does not exist.";
+    public static final String PHONE_NOT_EXISTS = "Phone number does not exist.";
+    public static final String SHARED_PHONES = "There are contacts that share phone numbers.";
+    public static final String DIFF_PHONES = "All contacts have different phone numbers.";
     public static final String CONTACT_ADDED = "contactBook.Contact added.";
     public static final String CONTACT_REMOVED = "contactBook.Contact removed.";
     public static final String CONTACT_UPDATED = "contactBook.Contact updated.";
@@ -52,6 +56,12 @@ public class Main {
                     break;
                 case LIST_CONTACTS:
                     listAllContacts(cBook);
+                    break;
+                case GIVEN_NUMBER:
+                    getContactByGivenNumber(in, cBook);
+                    break;
+                case EQUAL_PHONES:
+                    checkSharedNumbers(cBook);
                     break;
                 default:
                     System.out.println(COMMAND_ERROR);
@@ -140,11 +150,43 @@ public class Main {
     private static void listAllContacts(ContactBook cBook) {
         if (cBook.getNumberOfContacts() != 0) {
             cBook.initializeIterator();
-            while( cBook.hasNext() ) {
-                Contact c = cBook.next();
+            while( cBook.hasNext()) {
+                Contact c;
+                c = cBook.next();
                 System.out.println(c.getName() + "; " + c.getEmail() + "; " + c.getPhone());
             }
         }
         else System.out.println(BOOK_EMPTY);
+    }
+
+    private static void checkSharedNumbers(ContactBook cBook) {
+
+    }
+
+    private static void getContactByGivenNumber(Scanner in, ContactBook cBook) {
+        int phone;
+        String name = "";
+        int check = 0;
+
+        phone = in.nextInt();
+
+        if(cBook.getNumberOfContacts() != 0){
+            cBook.initializeIterator();
+            while (cBook.hasNext()){
+                Contact aux;
+                aux = cBook.next();
+                if (aux.getPhone() == phone){
+                    check++;
+                    name = aux.getName();
+                    break;
+                }
+            }
+        }
+
+        if(check != 0){
+            System.out.println(name);
+        } else {
+            System.out.println(PHONE_NOT_EXISTS);
+        }
     }
 }

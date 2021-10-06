@@ -93,4 +93,13 @@ public class ContactBook {
         return contacts[currentContact++];
     }
 
+    /**
+     * Getting contacts in the form of an array.
+     *
+     * @return contacts
+     */
+    public Contact[] getContacts() {
+        return contacts;
+    }
+
 }

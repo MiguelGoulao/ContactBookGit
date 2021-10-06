@@ -104,6 +104,14 @@ public class ContactBook {
         return null;
     }
 
+    public String getContactAlternative(int phone) {
+        int i = 0;
+        for (i = 0; i < counter && contacts[i].getPhone() != phone; i++) {
+        }
+        if (i != counter) return contacts[i].getName();
+        else return null;
+    }
+
     public boolean hasPhoneConflicts() {
         for (int i = 0; i < counter - 1; i++){
             for (int j = i + 1; j < counter; j++){

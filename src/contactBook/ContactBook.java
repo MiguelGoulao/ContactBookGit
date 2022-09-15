@@ -75,7 +75,7 @@ public class ContactBook {
                 found = true;
             else
                 i++;
-        if (found) result = i;
+        if (found) result = i ;
         return result;
     }
 

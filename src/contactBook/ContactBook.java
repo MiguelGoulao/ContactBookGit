@@ -86,6 +86,10 @@ public class ContactBook {
         return result;
     }
 
+    public boolean hasPhone(int phone) {
+        return searchIndexPhone(phone) >= 0;
+    }
+
     private void resize() {
         Contact tmp[] = new Contact[2*contacts.length];
         for (int i=0;i<counter; i++)

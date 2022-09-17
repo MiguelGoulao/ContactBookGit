@@ -58,6 +58,7 @@ public class Main {
                     break;
                 case EQUAL_PHONE:
                     equalPhones(cBook);
+                    break;
                 default:
                     System.out.println(COMMAND_ERROR);
             }
@@ -155,8 +156,8 @@ public class Main {
 
     private static void equalPhones(ContactBook cBook){
         if(cBook.equalPhones())
-            System.out.print(EXIST_EQUAL_PHONE);
-        else System.out.print(NO_EQUAL_PHONE);
+            System.out.println(EXIST_EQUAL_PHONE);
+        else System.out.println(NO_EQUAL_PHONE);
 
     }
 }

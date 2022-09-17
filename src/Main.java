@@ -10,6 +10,7 @@ public class Main {
     public static final String REMOVE_CONTACT = "RC";
     public static final String GET_PHONE      = "GP";
     public static final String GET_EMAIL      = "GE";
+    public static final String GET_NUMBER     = "GN";
     public static final String SET_PHONE      = "SP";
     public static final String SET_EMAIL      = "SE";
     public static final String LIST_CONTACTS  = "LC";
@@ -43,6 +44,9 @@ public class Main {
                     break;
                 case GET_EMAIL:
                     getEmail(in,cBook);
+                    break;
+                case GET_NUMBER:
+                    getNumber(in, cBook);
                     break;
                 case SET_PHONE:
                     setPhone(in,cBook);
@@ -111,6 +115,10 @@ public class Main {
             System.out.println(cBook.getEmail(name));
         }
         else System.out.println(NAME_NOT_EXIST);
+    }
+
+    private static void getNumber(Scanner in, ContactBook cBook) {
+        // TODO
     }
 
     private static void setPhone(Scanner in, ContactBook cBook) {

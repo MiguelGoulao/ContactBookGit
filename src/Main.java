@@ -73,6 +73,7 @@ public class Main {
     private static void getContactByNumber(Scanner in, ContactBook cBook) {
         int phoneNumber = in.nextInt();
         in.nextLine();
+
         Contact aux = new Contact("name", 0, "email");
         boolean found = false;
         cBook.initializeIterator();

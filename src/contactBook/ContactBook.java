@@ -1,6 +1,5 @@
 package contactBook;
 
-import contactBook.Contact;
 
 public class ContactBook {
     static final int DEFAULT_SIZE = 100;
@@ -20,6 +19,7 @@ public class ContactBook {
         return searchIndex(name) >= 0;
     }
 
+    //Pre: number != null
     public boolean hasNumber(int number) {
         return searchIndexByNumber(number) >= 0;
     }
@@ -80,6 +80,12 @@ public class ContactBook {
         return result;
     }
 
+    /**
+     * Searches the contact array for the index of
+     * the oldest contact with the given number
+     * @param number - phone number
+     * @return index of the oldest contact with the given number
+     */
     private int searchIndexByNumber(int number) {
         int i = 0;
         int result = -1;
@@ -115,6 +121,10 @@ public class ContactBook {
         return contacts[currentContact++];
     }
 
+    /**
+     * Checks if there are repeated numbers
+     * @return <code>true</code> if there are, <code>false</code> otherwise
+     */
     public boolean equalPhones() {
         for(int i = 0; i < counter; i++) {
             for (int j = 0; j < counter; j++)

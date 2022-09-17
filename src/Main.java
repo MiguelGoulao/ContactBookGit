@@ -159,6 +159,12 @@ public class Main {
         else System.out.println(BOOK_EMPTY);
     }
 
+    /**
+     * Searches the contactbook for a contact with the given number.
+     * If there is more than one returns the oldest
+     * @param in - user input
+     * @param cBook - contactbook
+     */
     private static void getNumber(Scanner in, ContactBook cBook) {
         int number = in.nextInt();
         in.nextLine();
@@ -169,6 +175,11 @@ public class Main {
             System.out.println(NUMBER_NOT_EXIST);
         }
     }
+
+    /**
+     * Checks if there are repeated phone numbers
+     * @param cBook - contactbook
+     */
     private static void equalPhones(ContactBook cBook) {
         if(cBook.equalPhones()) {
             System.out.println(EXIST_EQUAL_PHONE);

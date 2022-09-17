@@ -105,5 +105,13 @@ public class ContactBook {
     public Contact next() {
         return contacts[currentContact++];
     }
-
+    public boolean equalPhones() {
+        for (int temp = 0; temp < counter; temp++){
+            for (int i = temp+1; i < counter; i++) {
+                if (contacts[temp].getPhone()== contacts[i].getPhone())
+                    return true;
+            }
+        }
+        return false;
+    }
 }

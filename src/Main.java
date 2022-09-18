@@ -1,6 +1,7 @@
 import contactBook.Contact;
 import contactBook.ContactBook;
 
+import java.sql.SQLOutput;
 import java.util.Scanner;
 
 
@@ -13,15 +14,17 @@ public class Main {
     public static final String SET_PHONE      = "SP";
     public static final String SET_EMAIL      = "SE";
     public static final String LIST_CONTACTS  = "LC";
+    public static final String GIVEN_NUMBER  = "GN";
     public static final String QUIT           = "Q";
 
     //Constantes que definem as mensagens para o utilizador
-    public static final String CONTACT_EXISTS = "contactBook.Contact already exists.";
-    public static final String NAME_NOT_EXIST = "contactBook.Contact does not exist.";
-    public static final String CONTACT_ADDED = "contactBook.Contact added.";
-    public static final String CONTACT_REMOVED = "contactBook.Contact removed.";
-    public static final String CONTACT_UPDATED = "contactBook.Contact updated.";
-    public static final String BOOK_EMPTY = "contactBook.Contact book empty.";
+    public static final String CONTACT_EXISTS = "Contact already exists.";
+    public static final String NAME_NOT_EXIST = "Contact does not exist.";
+    public static final String CONTACT_ADDED = "Contact added.";
+    public static final String CONTACT_REMOVED = "Contact removed.";
+    public static final String CONTACT_UPDATED = "Contact updated.";
+    public static final String BOOK_EMPTY = "Contact book empty.";
+    public static final String NUMBER_NOT_EXISTS = "Phone number does not exist.";
     public static final String QUIT_MSG = "Goodbye!";
     public static final String COMMAND_ERROR = "Unknown command.";
 
@@ -52,6 +55,9 @@ public class Main {
                     break;
                 case LIST_CONTACTS:
                     listAllContacts(cBook);
+                    break;
+                case GIVEN_NUMBER:
+                    givenNumber(in,cBook);
                     break;
                 default:
                     System.out.println(COMMAND_ERROR);
@@ -146,5 +152,15 @@ public class Main {
             }
         }
         else System.out.println(BOOK_EMPTY);
+    }
+
+    private static void givenNumber(Scanner in, ContactBook cBook) {
+        int gNumber;
+        gNumber = in.nextInt();
+        Contact c = cBook.hasContactbyNumber(gNumber);
+        if (c != null) {
+            System.out.println(c.getName());
+        }
+        else System.out.println(NUMBER_NOT_EXISTS);
     }
 }

@@ -100,9 +100,11 @@ public class ContactBook {
 
     public Contact hasContactbyNumber(int phone){
         Contact con=null;
-        for (int i=0;i<counter; i++){
+        boolean found = false;
+        for (int i=0;i<counter && !found; i++){
             if (contacts[i].getPhone()== phone){
                 con=contacts[i];
+                found = true;
             }
         }
         return con;

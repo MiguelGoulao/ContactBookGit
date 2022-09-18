@@ -3,6 +3,11 @@ import contactBook.ContactBook;
 
 import java.util.Scanner;
 
+/*
+* Duarte Terrivel 59791
+* Diogo Moreira 59166
+* Joao Zarcos 60183
+ */
 
 public class Main {
     //Constantes que definem os comandos

@@ -1,6 +1,7 @@
 import contactBook.Contact;
 import contactBook.ContactBook;
 
+import javax.swing.*;
 import java.util.Scanner;
 
 /*
@@ -18,6 +19,8 @@ public class Main {
     public static final String SET_PHONE      = "SP";
     public static final String SET_EMAIL      = "SE";
     public static final String LIST_CONTACTS  = "LC";
+    public static final String GIVEN_NUMBER   = "GN";
+    public static final String EQUAL_PHONES   = "EP";
     public static final String QUIT           = "Q";
 
     //Constantes que definem as mensagens para o utilizador
@@ -28,6 +31,12 @@ public class Main {
     public static final String CONTACT_UPDATED = "contactBook.Contact updated.";
     public static final String BOOK_EMPTY = "contactBook.Contact book empty.";
     public static final String QUIT_MSG = "Goodbye!";
+
+    public static final String PHONE_DOES_NOT_EXIST_MSG = "Phone number does not exist.";
+
+    public static final String EQUAL_PHONES_SUCCESSFUL_MSG = "All contacts have different phone numbers.";
+
+    public static final String EQUAL_PHONES_UNSUCCESSFUL_MSG = "There are contacts that share phone numbers.";
     public static final String COMMAND_ERROR = "Unknown command.";
 
     public static void main(String[] args) {
@@ -57,6 +66,12 @@ public class Main {
                     break;
                 case LIST_CONTACTS:
                     listAllContacts(cBook);
+                    break;
+                case GIVEN_NUMBER:
+                    GetNameWithNumber(in, cBook);
+                    break;
+                case EQUAL_PHONES:
+                    equalPhones(cBook);
                     break;
                 default:
                     System.out.println(COMMAND_ERROR);
@@ -151,5 +166,22 @@ public class Main {
             }
         }
         else System.out.println(BOOK_EMPTY);
+    }
+
+    private static void equalPhones(ContactBook cBook) {
+        if(!cBook.equalPhones())
+            System.out.println(EQUAL_PHONES_SUCCESSFUL_MSG);
+        else
+            System.out.println(EQUAL_PHONES_UNSUCCESSFUL_MSG);
+    }
+
+    private static void GetNameWithNumber(Scanner in, ContactBook cBook) {
+        int phone = in.nextInt();
+        in.nextLine();
+        if(cBook.givenNumber(phone) != null){
+            System.out.println(cBook.givenNumber(phone));
+        }
+        else
+            System.out.println(PHONE_DOES_NOT_EXIST_MSG);
     }
 }

@@ -4,3 +4,4 @@ Fork this project to make your own version of it.
 
 # Colaboradores
 60694 Pedro Fernandes
+60044 Gonçalo Rodriguers

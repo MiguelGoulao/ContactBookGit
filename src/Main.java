@@ -147,4 +147,10 @@ public class Main {
         }
         else System.out.println(BOOK_EMPTY);
     }
+
+    private static void test() {
+
+                System.out.println("test123");
+
+    }
 }

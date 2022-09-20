@@ -13,6 +13,7 @@ public class Main {
     public static final String SET_PHONE      = "SP";
     public static final String SET_EMAIL      = "SE";
     public static final String LIST_CONTACTS  = "LC";
+    public static final String GET_BY_NUMBER = "GN";
     public static final String QUIT           = "Q";
 
     //Constantes que definem as mensagens para o utilizador
@@ -22,8 +23,10 @@ public class Main {
     public static final String CONTACT_REMOVED = "contactBook.Contact removed.";
     public static final String CONTACT_UPDATED = "contactBook.Contact updated.";
     public static final String BOOK_EMPTY = "contactBook.Contact book empty.";
+    private static final String PHONE_NUMBER_ERROR = "Phone number does not exist." ;
     public static final String QUIT_MSG = "Goodbye!";
     public static final String COMMAND_ERROR = "Unknown command.";
+
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
@@ -53,6 +56,9 @@ public class Main {
                 case LIST_CONTACTS:
                     listAllContacts(cBook);
                     break;
+                case GET_BY_NUMBER:
+                    getContactByNumber(in,cBook);
+                    break;    
                 default:
                     System.out.println(COMMAND_ERROR);
             }
@@ -62,6 +68,25 @@ public class Main {
         System.out.println(QUIT_MSG);
         System.out.println();
         in.close();
+    }
+
+    private static void getContactByNumber(Scanner in, ContactBook cBook) {
+        int phoneNumber = in.nextInt();
+        in.nextLine();
+
+        Contact aux = new Contact("name", 0, "email");
+        boolean found = false;
+        cBook.initializeIterator();
+        while (cBook.hasNext() && !found) {
+            aux = cBook.next();
+            if (aux.getPhone() == phoneNumber) {
+                found = true;
+                System.out.println(aux.getName());
+            }
+        }
+        if (!found) {
+            System.out.println(PHONE_NUMBER_ERROR);
+        }
     }
 
     private static String getCommand(Scanner in) {

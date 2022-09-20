@@ -148,9 +148,11 @@ public class Main {
         else System.out.println(BOOK_EMPTY);
     }
 
-    private static void test() {
-
-                System.out.println("test123");
+    private static void EPcommand(){
+        if (cBook.haveSame()){
+            System.out.println("There are contacts that share phone numbers.");
+        }
+        else System.out.println("All contacts have different phone numbers");
 
     }
 }

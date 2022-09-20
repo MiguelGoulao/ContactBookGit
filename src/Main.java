@@ -13,6 +13,8 @@ public class Main {
     public static final String SET_PHONE      = "SP";
     public static final String SET_EMAIL      = "SE";
     public static final String LIST_CONTACTS  = "LC";
+    public static final String GET_NUMBER = "GN";
+    public static final String EQUAL_PHONE = "EP";
     public static final String QUIT           = "Q";
 
     //Constantes que definem as mensagens para o utilizador
@@ -22,6 +24,9 @@ public class Main {
     public static final String CONTACT_REMOVED = "contactBook.Contact removed.";
     public static final String CONTACT_UPDATED = "contactBook.Contact updated.";
     public static final String BOOK_EMPTY = "contactBook.Contact book empty.";
+    public static final String GN_FAIL = "Phone number does not exist.";
+    public static final String EP_SUCC = "There are contacts that share phone numbers.";
+    public static final String EP_NO =  "All contacts have different phone numbers.";
     public static final String QUIT_MSG = "Goodbye!";
     public static final String COMMAND_ERROR = "Unknown command.";
 
@@ -32,29 +37,16 @@ public class Main {
 
         while (!comm.equals(QUIT)){
             switch (comm) {
-                case ADD_CONTACT:
-                    addContact(in,cBook);
-                    break;
-                case REMOVE_CONTACT:
-                    deleteContact(in,cBook);
-                    break;
-                case GET_PHONE:
-                    getPhone(in,cBook);
-                    break;
-                case GET_EMAIL:
-                    getEmail(in,cBook);
-                    break;
-                case SET_PHONE:
-                    setPhone(in,cBook);
-                    break;
-                case SET_EMAIL:
-                    setEmail(in,cBook);
-                    break;
-                case LIST_CONTACTS:
-                    listAllContacts(cBook);
-                    break;
-                default:
-                    System.out.println(COMMAND_ERROR);
+                case ADD_CONTACT -> addContact(in, cBook);
+                case REMOVE_CONTACT -> deleteContact(in, cBook);
+                case GET_PHONE -> getPhone(in, cBook);
+                case GET_EMAIL -> getEmail(in, cBook);
+                case SET_PHONE -> setPhone(in, cBook);
+                case SET_EMAIL -> setEmail(in, cBook);
+                case GET_NUMBER -> getNumber(in, cBook);
+                case EQUAL_PHONE -> equalPhone(cBook);
+                case LIST_CONTACTS -> listAllContacts(cBook);
+                default -> System.out.println(COMMAND_ERROR);
             }
             System.out.println();
             comm = getCommand(in);
@@ -146,5 +138,23 @@ public class Main {
             }
         }
         else System.out.println(BOOK_EMPTY);
+    }
+
+    private static void getNumber(Scanner in, ContactBook cBook) {
+        int number;
+        number = in.nextInt(); in.nextLine();
+        Contact c = cBook.searchIndexPhone(number);
+        if(c != null){
+            System.out.println(c.getName());
+        }
+        else System.out.println(GN_FAIL);
+    }
+
+    private static void equalPhone(ContactBook cBook){
+        if(cBook.searchForDuplicateNumbers()){
+            System.out.println(EP_SUCC);}
+        else{
+            System.out.println(EP_NO);
+        }
     }
 }

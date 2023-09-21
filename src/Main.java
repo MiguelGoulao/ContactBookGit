@@ -28,8 +28,6 @@ public class Main {
     public static final String PHONE_NOT_EXISTS = "Phone number does not exist.";
     public static final String COMMAND_ERROR = "Unknown command.";
 
-    public static final String COMMAND_DOEST_EXIST = "Unknown.";
-
 
 
     public static void main(String[] args) {
@@ -62,6 +60,7 @@ public class Main {
                     break;
                 case SHOW_NUMBER:
                     showNumber(in, cBook);
+                    break;
                 default:
                     System.out.println(COMMAND_ERROR);
             }
@@ -77,7 +76,8 @@ public class Main {
         int phone;
         Contact c;
 
-        phone = in.nextInt(); in.nextLine();
+        phone = in.nextInt();
+        in.nextLine();
         c = cBook.showContact(phone);
 
         if(c == null)

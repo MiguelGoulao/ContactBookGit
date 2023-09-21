@@ -13,6 +13,8 @@ public class Main {
     public static final String SET_PHONE      = "SP";
     public static final String SET_EMAIL      = "SE";
     public static final String LIST_CONTACTS  = "LC";
+    public static final String GIVEN_NUMBER   = "GN";
+    public static final String EQUAL_PHONE    = "EQ";
     public static final String QUIT           = "Q";
 
     //Constantes que definem as mensagens para o utilizador
@@ -24,6 +26,9 @@ public class Main {
     public static final String BOOK_EMPTY = "contactBook.Contact book empty.";
     public static final String QUIT_MSG = "Goodbye!";
     public static final String COMMAND_ERROR = "Unknown command.";
+    public static final String PHONE_NOT_EXIST = "concactBook.Contact does not exist.";
+    public static final String MANY_PEOPLE_WITH_SAME_NUMBER = "concactBook.Contact number repeats";
+    public static final String ONE_NUMBER_PER_PERSON = "concactBook.Contact numbers do not repeat";
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
@@ -52,6 +57,12 @@ public class Main {
                     break;
                 case LIST_CONTACTS:
                     listAllContacts(cBook);
+                    break;
+                case GIVEN_NUMBER:
+                    lookupContact(in, cBook);
+                    break;
+                case EQUAL_PHONE:
+                    findContactWithSameNumber(cBook);
                     break;
                 default:
                     System.out.println(COMMAND_ERROR);
@@ -146,5 +157,19 @@ public class Main {
             }
         }
         else System.out.println(BOOK_EMPTY);
+    }
+
+    private static void lookupContact(Scanner in, ContactBook cBook) {
+        int phone;
+        phone = in.nextInt(); in.nextLine();
+        if (cBook.phoneNumberExists(phone))
+            System.out.println(cBook.getName(phone));
+        else System.out.println(PHONE_NOT_EXIST);
+    }
+
+    private static void findContactWithSameNumber(ContactBook cBook) {
+        if (cBook.contactWithSameNumberExist())
+            System.out.println(MANY_PEOPLE_WITH_SAME_NUMBER);
+        else System.out.println(ONE_NUMBER_PER_PERSON);
     }
 }

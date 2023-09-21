@@ -23,6 +23,9 @@ public class Contact {
         return email;
     }
 
+    /*
+     * Sets the phone
+     */
     public void setPhone(int phone) {
         this.phone = phone;
     }

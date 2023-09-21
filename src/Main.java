@@ -13,6 +13,7 @@ public class Main {
     public static final String SET_PHONE      = "SP";
     public static final String SET_EMAIL      = "SE";
     public static final String LIST_CONTACTS  = "LC";
+    public static final String SHOW_NUMBER  = "GN";
     public static final String QUIT           = "Q";
     public static final String GET_NAME = "GN";
 
@@ -24,7 +25,10 @@ public class Main {
     public static final String CONTACT_UPDATED = "contactBook.Contact updated.";
     public static final String BOOK_EMPTY = "contactBook.Contact book empty.";
     public static final String QUIT_MSG = "Goodbye!";
+    public static final String PHONE_NOT_EXISTS = "Phone number does not exist.";
     public static final String COMMAND_ERROR = "Unknown command.";
+
+    //faltam 2 comandos
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
@@ -54,6 +58,8 @@ public class Main {
                 case LIST_CONTACTS:
                     listAllContacts(cBook);
                     break;
+                case SHOW_NUMBER:
+                    showNumber(in, cBook);
                 default:
                     System.out.println(COMMAND_ERROR);
             }
@@ -63,6 +69,19 @@ public class Main {
         System.out.println(QUIT_MSG);
         System.out.println();
         in.close();
+    }
+
+    private static void showNumber(Scanner in, ContactBook cBook) {
+        int phone;
+        Contact c;
+
+        phone = in.nextInt(); in.nextLine();
+        c = cBook.showContact(phone);
+
+        if(c == null)
+            System.out.println(PHONE_NOT_EXISTS);
+        else
+            System.out.println(c.getName());
     }
 
     private static String getCommand(Scanner in) {

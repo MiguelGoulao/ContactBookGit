@@ -28,7 +28,9 @@ public class Main {
     public static final String PHONE_NOT_EXISTS = "Phone number does not exist.";
     public static final String COMMAND_ERROR = "Unknown command.";
 
-    //faltam 2 comandos
+    public static final String COMMAND_DOEST_EXIST = "Unknown.";
+
+
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);

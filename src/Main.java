@@ -17,6 +17,7 @@ public class Main {
     public static final String SHOW_NUMBER  = "GN";
     public static final String QUIT           = "Q";
     public static final String GET_NAME = "GN";
+    public static final String SAME_NUMBER = "EP";
 
     //Constantes que definem as mensagens para o utilizador
     public static final String CONTACT_EXISTS = "contactBook.Contact already exists.";
@@ -63,6 +64,9 @@ public class Main {
                     break;
                 case SHOW_NUMBER:
                     showNumber(in, cBook);
+                    break;
+                case SAME_NUMBER:
+                    samePhoneNumbers(cBook);
                     break;
                 default:
                     System.out.println(COMMAND_ERROR);

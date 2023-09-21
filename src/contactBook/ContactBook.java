@@ -86,18 +86,15 @@ public class ContactBook {
     }
 
     public boolean areSamePhoneNumber(){
-        int i = 0;
-        int result = -1;
-        Contact found = null;
-        for(int i = 0; i < coumter; i++){
-            //for(int j = 0; j )
+        boolean aux = false;
+        for(int t = 0; t < counter; t++){
+            for(int j = 1; j < counter; j++ ){
+                if(contacts[t].getPhone() == contacts[j].getPhone())
+                    aux = true;
+            }
         }
-        while (i<counter)
-            if (contacts[i].getPhone() == phoneNumber)
-                found = contacts[i];
-            else
-                i++;
-        return found;
+
+        return aux;
     }
 
     private void resize() {

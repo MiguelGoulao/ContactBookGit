@@ -59,9 +59,10 @@ public class ContactBook {
 
     //Pre: hasContactWithPhone(phone)
     public Contact getContact(int phone) {
-        for (Contact c : contacts)
-            if (c.getPhone() == phone)
-                return c;
+        for (int i = 0; i < counter; i++)
+            if (contacts[i].getPhone() == phone)
+                return contacts[i];
+        return null;
     }
 
     //Pre: name != null && hasContact(name)

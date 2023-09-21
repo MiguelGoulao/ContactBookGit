@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 
 
-import contactBook.Contact;
+public class Main {
     //Constantes que definem os comandos
     public static final String ADD_CONTACT    = "AC";
     public static final String REMOVE_CONTACT = "RC";
@@ -20,13 +20,13 @@ import contactBook.Contact;
     //Constantes que definem as mensagens para o utilizador
     public static final String CONTACT_EXISTS = "contactBook.Contact already exists.";
     public static final String NAME_NOT_EXIST = "contactBook.Contact does not exist.";
-    public static final string PHONE_NOT_EXIST = "Phone number does not exist.";
+    public static final String PHONE_NOT_EXIST = "Phone number does not exist.";
     public static final String CONTACT_ADDED = "contactBook.Contact added.";
     public static final String CONTACT_REMOVED = "contactBook.Contact removed.";
     public static final String CONTACT_UPDATED = "contactBook.Contact updated.";
     public static final String BOOK_EMPTY = "contactBook.Contact book empty.";
     public static final String QUIT_MSG = "Goodbye!";
-    public static final String COMMAND_ERROR = "You are being dumb! Try another command!";
+    public static final String COMMAND_ERROR = "Unknown command.";
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
@@ -155,13 +155,13 @@ import contactBook.Contact;
     }
 
     private static void getContact(Scanner in, ContactBook cBook) {
-        String phone = in.nextInt();
+        int phone = in.nextInt();
         in.nextLine();
 
-        if (cBook.hasContactWithPhone(phone)) {
             Contact c = cBook.getContact(phone);
-            System.out.printf("%s; %s; %d\n", c.getName(), c.getEmail(), c.getPhone());
-        }
+            if (c != null)
+                System.out.println( c.getName());
+
         else System.out.println(PHONE_NOT_EXIST);
     }
 }

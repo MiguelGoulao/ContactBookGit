@@ -23,7 +23,7 @@ public class Main {
     public static final String CONTACT_UPDATED = "contactBook.Contact updated.";
     public static final String BOOK_EMPTY = "contactBook.Contact book empty.";
     public static final String QUIT_MSG = "Goodbye!";
-    public static final String COMMAND_ERROR = "Unknown command.";
+    public static final String COMMAND_ERROR = "You are being dumb! Try another command!";
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);

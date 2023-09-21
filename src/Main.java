@@ -4,7 +4,8 @@ import contactBook.ContactBook;
 import java.util.Scanner;
 
 
-public class Main {
+
+import contactBook.Contact;
     //Constantes que definem os comandos
     public static final String ADD_CONTACT    = "AC";
     public static final String REMOVE_CONTACT = "RC";
@@ -13,11 +14,13 @@ public class Main {
     public static final String SET_PHONE      = "SP";
     public static final String SET_EMAIL      = "SE";
     public static final String LIST_CONTACTS  = "LC";
+    public static final String GET_CONTACT    = "GN";
     public static final String QUIT           = "Q";
 
     //Constantes que definem as mensagens para o utilizador
     public static final String CONTACT_EXISTS = "contactBook.Contact already exists.";
     public static final String NAME_NOT_EXIST = "contactBook.Contact does not exist.";
+    public static final string PHONE_NOT_EXIST = "Phone number does not exist.";
     public static final String CONTACT_ADDED = "contactBook.Contact added.";
     public static final String CONTACT_REMOVED = "contactBook.Contact removed.";
     public static final String CONTACT_UPDATED = "contactBook.Contact updated.";
@@ -52,6 +55,9 @@ public class Main {
                     break;
                 case LIST_CONTACTS:
                     listAllContacts(cBook);
+                    break;
+                case GET_CONTACT:
+                    getContact(in,cBook);
                     break;
                 default:
                     System.out.println(COMMAND_ERROR);
@@ -146,5 +152,16 @@ public class Main {
             }
         }
         else System.out.println(BOOK_EMPTY);
+    }
+
+    private static void getContact(Scanner in, ContactBook cBook) {
+        String phone = in.nextInt();
+        in.nextLine();
+
+        if (cBook.hasContactWithPhone(phone)) {
+            Contact c = cBook.getContact(phone);
+            System.out.printf("%s; %s; %d\n", c.getName(), c.getEmail(), c.getPhone());
+        }
+        else System.out.println(PHONE_NOT_EXIST);
     }
 }

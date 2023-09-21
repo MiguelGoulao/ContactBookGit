@@ -1,4 +1,3 @@
-# ContactBookGit
-This is a starter kit for the first lab of the Software Engineering Course.
-Fork this project to make your own version of it.
-
+Felipe Poubel Rossi do Carmo - 62786
+Rita Sofia Rodrigues Martins - 62963
+Tomás Alexandre dos Santos Galvão - 63361

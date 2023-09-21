@@ -30,7 +30,7 @@ public class Main {
     public static final String PHONE_NOT_EXISTS = "Phone number does not exist.";
     public static final String COMMAND_ERROR = "Unknown command.";
     public static final String CONTACTS_SHARE_NUMBERS = "There are contacts that share phone numbers.";
-    public static final String ALL_CONTACTS_DIFFERENT_NUMBERS = "There are contacts that share phone numbers.";
+    public static final String ALL_CONTACTS_DIFFERENT_NUMBERS = "All contacts have different phone numbers.";
 
 
 

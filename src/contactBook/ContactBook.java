@@ -88,7 +88,7 @@ public class ContactBook {
     public boolean areSamePhoneNumber(){
         boolean aux = false;
         for(int t = 0; t < counter; t++){
-            for(int j = 1; j < counter; j++ ){
+            for(int j = t+1; j < counter; j++ ){
                 if(contacts[t].getPhone() == contacts[j].getPhone())
                     aux = true;
             }

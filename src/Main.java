@@ -1,6 +1,7 @@
 import contactBook.Contact;
 import contactBook.ContactBook;
 
+import java.sql.SQLOutput;
 import java.util.Scanner;
 
 
@@ -27,6 +28,8 @@ public class Main {
     public static final String QUIT_MSG = "Goodbye!";
     public static final String PHONE_NOT_EXISTS = "Phone number does not exist.";
     public static final String COMMAND_ERROR = "Unknown command.";
+    public static final String CONTACTS_SHARE_NUMBERS = "There are contacts that share phone numbers.";
+    public static final String ALL_CONTACTS_DIFFERENT_NUMBERS = "There are contacts that share phone numbers.";
 
 
 
@@ -168,5 +171,13 @@ public class Main {
             }
         }
         else System.out.println(BOOK_EMPTY);
+    }
+
+    private static void samePhoneNumbers(ContactBook cBook){
+        if(cBook.areSamePhoneNumber()){
+            System.out.println(CONTACTS_SHARE_NUMBERS);
+        }
+        else
+            System.out.println(ALL_CONTACTS_DIFFERENT_NUMBERS);
     }
 }

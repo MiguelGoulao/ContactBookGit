@@ -83,7 +83,7 @@ public class ContactBook {
         int result = -1;
         boolean found = false;
         while (i<counter && !found)
-            if (contacts[i].getNumber() == phone)
+            if (contacts[i].getPhone() == phone)
                 found = true;
             else
                 i++;

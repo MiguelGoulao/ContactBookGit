@@ -125,7 +125,10 @@ public class Main {
     private static void getName(Scanner in, ContactBook cBook) {
         int phone;
         phone = in.nextInt(); in.nextLine();
-        if (cBook.has) {
+        if (cBook.hasPhone(phone)) {
+            if (cBook.multiPhone(phone)) {
+                System.out.println();
+            }
         }
     }
     private static void setPhone(Scanner in, ContactBook cBook) {

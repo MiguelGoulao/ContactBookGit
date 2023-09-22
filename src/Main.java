@@ -6,16 +6,16 @@ import java.util.Scanner;
 
 public class Main {
     //Constantes que definem os comandos
-    public static final String ADD_CONTACT    = "AC";
-    public static final String REMOVE_CONTACT = "RC";
-    public static final String GET_PHONE      = "GP";
-    public static final String GET_EMAIL      = "GE";
-    public static final String GET_NAME       = "GN";
-    public static final String SET_PHONE      = "SP";
-    public static final String SET_EMAIL      = "SE";
-    public static final String LIST_CONTACTS  = "LC";
-    public static final String EXIST_PHONE    = "EP";
-    public static final String QUIT           = "Q";
+    public static final String ADD_CONTACT       = "AC";
+    public static final String REMOVE_CONTACT    = "RC";
+    public static final String GET_PHONE         = "GP";
+    public static final String GET_EMAIL         = "GE";
+    public static final String GET_NUMBER        = "GN";
+    public static final String SET_PHONE         = "SP";
+    public static final String SET_EMAIL         = "SE";
+    public static final String LIST_CONTACTS     = "LC";
+    public static final String EXIST_MULTI_PHONE = "EP";
+    public static final String QUIT              = "Q";
 
 
     //Constantes que definem as mensagens para o utilizador
@@ -50,8 +50,8 @@ public class Main {
                 case GET_EMAIL:
                     getEmail(in,cBook);
                     break;
-                case GET_NAME:
-                    getName(in,cBook);
+                case GET_NUMBER:
+                    getNumber(in,cBook);
                     break;
                 case SET_PHONE:
                     setPhone(in,cBook);
@@ -122,15 +122,16 @@ public class Main {
         else System.out.println(NAME_NOT_EXIST);
     }
 
-    private static void getName(Scanner in, ContactBook cBook) {
+    private static void getNumber(Scanner in, ContactBook cBook) {
         int phone;
         phone = in.nextInt(); in.nextLine();
         if (cBook.hasPhone(phone)) {
-            if (cBook.multiPhone(phone)) {
-                System.out.println();
-            }
-        }
+                Contact c = oldestPhone(phone);
+                System.out.println(c.getName() + "; " + c.getEmail() + "; " + c.getPhone());
+        } 
+        else System.out.println(PHONE_NOT_EXIST);
     }
+    
     private static void setPhone(Scanner in, ContactBook cBook) {
         String name;
         int phone;

@@ -19,12 +19,15 @@ public class Main {
     // Constantes que definem as mensagens para o utilizador
     public static final String CONTACT_EXISTS = "contactBook.Contact already exists.";
     public static final String NAME_NOT_EXIST = "contactBook.Contact does not exist.";
+    public static final String PHONE_NOT_EXIST = "Phone number does not exist.";
     public static final String CONTACT_ADDED = "contactBook.Contact added.";
     public static final String CONTACT_REMOVED = "contactBook.Contact removed.";
     public static final String CONTACT_UPDATED = "contactBook.Contact updated.";
     public static final String BOOK_EMPTY = "contactBook.Contact book empty.";
     public static final String QUIT_MSG = "Goodbye!";
     public static final String COMMAND_ERROR = "Unknown command.";
+    public static final String DUPLICATE_NUMBERS = "There are contacts that share phone numbers.";
+    public static final String NO_DUPLICATE_NUMBERS = "All contacts have different phone numbers.";
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
@@ -72,9 +75,20 @@ public class Main {
     }
 
     private static void getRepeated(Scanner in, ContactBook cBook) {
+        if (cBook.hasDuplicatePhoneNumbers()) {
+            System.out.println(DUPLICATE_NUMBERS);
+        } else {
+            System.out.println(NO_DUPLICATE_NUMBERS);
+        }
     }
 
     private static void getContact(Scanner in, ContactBook cBook) {
+        int phone = in.nextInt();
+        in.nextLine();
+        if (cBook.hasContact(phone)) {
+            System.out.println(cBook.getName(phone));
+        } else
+            System.out.println(PHONE_NOT_EXIST);
     }
 
     private static String getCommand(Scanner in) {

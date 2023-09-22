@@ -15,9 +15,27 @@ public class ContactBook {
         currentContact = -1;
     }
 
+    // Check if there are two or more contacts with the same phone number
+    public boolean hasDuplicatePhoneNumbers() {
+        boolean hasDuplicate = false;
+        for (int i = 0; i < counter; i++) {
+            for (int j = i + 1; j < counter; j++) {
+                if (contacts[i].getPhone() == contacts[j].getPhone()) {
+                    hasDuplicate = true;
+                }
+            }
+        }
+        return hasDuplicate;
+    }
+
     // Pre: name != null
     public boolean hasContact(String name) {
         return searchIndex(name) >= 0;
+    }
+
+    // Pre: phone != null
+    public boolean hasContact(int phone) {
+        return searchIndex(phone) >= 0;
     }
 
     public int getNumberOfContacts() {
@@ -66,6 +84,24 @@ public class ContactBook {
         boolean found = false;
         while (i < counter && !found)
             if (contacts[i].getName().equals(name))
+                found = true;
+            else
+                i++;
+        if (found)
+            result = i;
+        return result;
+    }
+
+    public String getName(int phone) {
+        return contacts[searchIndex(phone)].getName();
+    }
+
+    private int searchIndex(int phone) {
+        int i = 0;
+        int result = -1;
+        boolean found = false;
+        while (i < counter && !found)
+            if (contacts[i].getPhone() == phone)
                 found = true;
             else
                 i++;

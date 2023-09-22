@@ -1,7 +1,5 @@
 package contactBook;
 
-import contactBook.Contact;
-
 public class ContactBook {
     static final int DEFAULT_SIZE = 100;
 
@@ -18,6 +16,11 @@ public class ContactBook {
     //Pre: name != null
     public boolean hasContact(String name) {
         return searchIndex(name) >= 0;
+    }
+
+    //Pre: name != null                         //wiirijo
+    public boolean hasNumber(int phone) {
+        return searchIndexNr(phone) >= 0;
     }
 
     public int getNumberOfContacts() {
@@ -43,6 +46,12 @@ public class ContactBook {
     //Pre: name != null && hasContact(name)
     public int getPhone(String name) {
         return contacts[searchIndex(name)].getPhone();
+    }
+
+
+    //Pre: name != null && hasContact(name)
+    public String getName(int phone) {                      //wiirijo
+        return contacts[searchIndexNr(phone)].getName();
     }
 
     //Pre: name != null && hasContact(name)
@@ -73,6 +82,19 @@ public class ContactBook {
         return result;
     }
 
+    private int searchIndexNr(int phone) {  // wiirijo
+        int i = 0;
+        int result = -1;
+        boolean found = false;
+        while (i<counter && !found)
+            if (contacts[i].getPhone() == phone)
+                found = true;
+            else
+                i++;
+        if (found) result = i;
+        return result;
+    }
+
     private void resize() {
         Contact tmp[] = new Contact[2*contacts.length];
         for (int i=0;i<counter; i++)
@@ -91,6 +113,31 @@ public class ContactBook {
     //Pre: hasNext()
     public Contact next() {
         return contacts[currentContact++];
+    }
+
+    /**
+     * @author jbrilha 64421
+     * @return <code>True</code> if there are duplicate phone numbers in the system
+     *          <code>False</code> otherwise.
+     * @pre ContactBook has more than 1 contact registered
+     */
+    public boolean hasEqualPhones() {
+        for (Contact contact1 : contacts) {
+            if (contact1 == null) {
+                continue; // Skip null or contacts with null phone numbers
+            }
+
+            for (Contact contact2 : contacts) {
+                if (contact2 == null || contact2.equals(contact1)) {
+                    continue; // Skip null contacts, contacts with null phone numbers, and self-comparisons
+                }
+
+                if (contact1.getPhone() == contact2.getPhone()) {
+                    return true; // Found a contact with the same phone number
+                }
+            }
+        }
+        return false;
     }
 
 }

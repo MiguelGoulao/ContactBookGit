@@ -13,7 +13,7 @@ public class Main {
     public static final String SET_EMAIL = "SE";
     public static final String LIST_CONTACTS = "LC";
     public static final String QUIT = "Q";
-    public static final String REPETED = "EP";
+    public static final String REPEATED = "EP";
     public static final String GET_CONTACT = "GN";
 
     // Constantes que definem as mensagens para o utilizador
@@ -57,8 +57,8 @@ public class Main {
                 case GET_CONTACT:
                     getContact(in, cBook);
                     break;
-                case REPETED:
-                    getRepeted(in, cBook);
+                case REPEATED:
+                    getRepeated(in, cBook);
                     break;
                 default:
                     System.out.println(COMMAND_ERROR);
@@ -71,7 +71,7 @@ public class Main {
         in.close();
     }
 
-    private static void getRepeted(Scanner in, ContactBook cBook) {
+    private static void getRepeated(Scanner in, ContactBook cBook) {
     }
 
     private static void getContact(Scanner in, ContactBook cBook) {

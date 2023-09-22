@@ -20,6 +20,11 @@ public class ContactBook {
         return searchIndex(name) >= 0;
     }
 
+    //Pre: phone != null
+    public boolean hasPhone(int phone) {
+        return searchIndexNumber(phone) >= 0;
+    }
+
     public int getNumberOfContacts() {
         return counter;
     }
@@ -73,6 +78,19 @@ public class ContactBook {
         return result;
     }
 
+    private int searchIndexNumber(int phone) {
+        int i = 0;
+        int result = -1;
+        boolean found = false;
+        while (i<counter && !found)
+            if (contacts[i].getPhone() == phone)
+                found = true;
+            else
+                i++;
+        if (found) result = i;
+        return result;
+    }
+    
     private void resize() {
         Contact tmp[] = new Contact[2*contacts.length];
         for (int i=0;i<counter; i++)
@@ -93,4 +111,26 @@ public class ContactBook {
         return contacts[currentContact++];
     }
 
+    public Contact oldestPhone(int phone) {
+
+        for( Contact c : contacts){
+            if (c.getPhone() == phone) return c;
+        }
+        return null;
+    }
+
+    public boolean multiPhone(int phone) {
+        for( int a = 0; a < counter; a++){
+            Contact c = contacts[a];
+            int cNum = c.getPhone();
+            String cName = c.getName();
+            String cMail = c.getEmail();
+            for(int i = 0; i < counter; i++){
+                Contact d = contacts[i];
+                if(d.getPhone() == cNum && i!=a)
+                    return true;
+            }
+        }
+        return false;
+    }
 }

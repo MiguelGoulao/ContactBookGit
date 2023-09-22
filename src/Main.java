@@ -116,10 +116,10 @@ public class Main {
         else System.out.println(NAME_NOT_EXIST);
 
     }
-    private static void getName(Scanner in, ContactBook cBook) {
+    private static void getName(Scanner in, ContactBook cBook) { //wiirijo & jbrilha
         int number;
         number = in.nextInt(); in.nextLine();
-        if (cBook.hasPhoneNumber(number)) {
+        if (cBook.hasNumber(number)) {
             System.out.println(cBook.getName(number));
         }
         else System.out.println(NUMBER_NOT_EXIST);
@@ -169,6 +169,10 @@ public class Main {
         else System.out.println(BOOK_EMPTY);
     }
 
+    /**
+     * @author jbrilha 64421
+     * @param cBook
+     */
     private static void equalPhones(ContactBook cBook) {
         if (cBook.getNumberOfContacts() > 1) {
             if (cBook.hasEqualPhones()) {

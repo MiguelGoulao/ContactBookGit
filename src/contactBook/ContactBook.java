@@ -18,17 +18,6 @@ public class ContactBook {
         return searchIndex(name) >= 0;
     }
 
-    public boolean hasPhoneNumber(int number) {
-        for(Contact contact : contacts) {
-            if(contact == null)
-                continue;
-
-            if(contact.getPhone() == number)
-                return true;
-        }
-        return false;
-    }
-
     //Pre: name != null                         //wiirijo
     public boolean hasNumber(int phone) {
         return searchIndexNr(phone) >= 0;
@@ -126,6 +115,12 @@ public class ContactBook {
         return contacts[currentContact++];
     }
 
+    /**
+     * @author jbrilha 64421
+     * @return <code>True</code> if there are duplicate phone numbers in the system
+     *          <code>False</code> otherwise.
+     * @pre ContactBook has more than 1 contact registered
+     */
     public boolean hasEqualPhones() {
         for (Contact contact1 : contacts) {
             if (contact1 == null) {

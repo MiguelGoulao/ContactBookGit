@@ -76,7 +76,7 @@ public class Main {
 
         name = in.nextLine();
         phone = in.nextInt();
-        //in.nextLine();
+        in.nextLine();
         email = in.nextLine();
         if (!cBook.hasContact(name)) {
             cBook.addContact(name, phone, email);

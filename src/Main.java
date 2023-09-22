@@ -85,12 +85,12 @@ public class Main {
     }
 
     private static void getName(Scanner in, ContactBook cBook) {
-        /*int phone;
+        int phone;
         phone = in.nextInt(); in.nextLine();
         if (cBook.hasPhone(phone)) {
             System.out.println(cBook.getName(phone));
         }
-        else System.out.println(NO_PHONE);*/
+        else System.out.println(NO_PHONE);
     }
 
 

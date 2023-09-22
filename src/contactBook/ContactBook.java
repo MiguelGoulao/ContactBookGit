@@ -104,4 +104,20 @@ public class ContactBook {
         }
         return false;
     }
+    public boolean hasPhone(int phone){
+        for(int i = 0 ; i< counter; i++){
+            if(contacts[i].getPhone() == phone){
+                return true;
+            }
+        }
+        return false;
+    }
+    public String getName(int phone){
+        for (int i = 0; i < counter; i++) {
+                if (contacts[i].getPhone() == phone) {
+                    return contacts[i].getName();
+                }
+        }
+        return "";
+    }
 }

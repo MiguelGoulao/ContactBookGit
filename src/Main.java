@@ -71,6 +71,7 @@ public class Main {
         return input;
     }
 
+    // Just testing
     private static void addContact(Scanner in, ContactBook cBook) {
         String name, email;
         int phone;

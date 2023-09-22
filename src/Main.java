@@ -62,6 +62,9 @@ public class Main {
                 case LIST_CONTACTS:
                     listAllContacts(cBook);
                     break;
+                case EXIST_MULTI_PHONE:
+                    checkMultiPhone(cBook);
+                    break;
                 default:
                     System.out.println(COMMAND_ERROR);
             }
@@ -165,5 +168,18 @@ public class Main {
             }
         }
         else System.out.println(BOOK_EMPTY);
+    }
+    
+    private static void checkMultiPhone(ContactBook cBook) {
+        if (cBook.getNumberOfContacts() > 1) {
+            cBook.initializeIterator();
+            bool check = false;
+            while( cBook.hasNext() && !check) {
+                Contact c = cBook.next();
+                check = multiPhone(c.getPhone());
+            }
+            if (check) { System.out.println(SAME_NUNMBER); }
+        }
+        else System.out.println(ALL_DIF_NUMBER);
     }
 }

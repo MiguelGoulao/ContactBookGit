@@ -10,6 +10,8 @@ public class Main {
     public static final String REMOVE_CONTACT = "RC";
     public static final String GET_PHONE      = "GP";
     public static final String GET_EMAIL      = "GE";
+    public static final String GET_NAME       = "GN";
+    public static final String EXIST_PHONE    = "EP";
     public static final String SET_PHONE      = "SP";
     public static final String SET_EMAIL      = "SE";
     public static final String LIST_CONTACTS  = "LC";
@@ -22,6 +24,11 @@ public class Main {
     public static final String CONTACT_REMOVED = "contactBook.Contact removed.";
     public static final String CONTACT_UPDATED = "contactBook.Contact updated.";
     public static final String BOOK_EMPTY = "contactBook.Contact book empty.";
+
+    public static final String SAME_PHONE = "There are contacts that share phone numbers.";
+    public static final String DIFF_PHONE = "All contacts have different phone numbers";
+
+    public static final String NO_PHONE = "Phone number does not exist.";
     public static final String QUIT_MSG = "Goodbye!";
     public static final String COMMAND_ERROR = "Unknown command.";
 
@@ -50,6 +57,12 @@ public class Main {
                 case SET_EMAIL:
                     setEmail(in,cBook);
                     break;
+                case GET_NAME:
+                    getName(in,cBook);
+                    break;
+                case EXIST_PHONE:
+                    existPhone(in,cBook);
+                    break;
                 case LIST_CONTACTS:
                     listAllContacts(cBook);
                     break;
@@ -62,6 +75,24 @@ public class Main {
         System.out.println(QUIT_MSG);
         System.out.println();
         in.close();
+    }
+
+    private static void existPhone(Scanner in, ContactBook cBook) {
+        int phone;
+        phone = in.nextInt(); in.nextLine();
+        if (cBook.hasSamePhone(phone)) {
+            System.out.println(SAME_PHONE);
+        }
+        else System.out.println(DIFF_PHONE);
+    }
+
+    private static void getName(Scanner in, ContactBook cBook) {
+        int phone;
+        phone = in.nextInt(); in.nextLine();
+        if (cBook.hasPhone(phone)) {
+            System.out.println(cBook.getName(phone));
+        }
+        else System.out.println(NO_PHONE);
     }
 
     private static String getCommand(Scanner in) {

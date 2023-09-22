@@ -101,4 +101,17 @@ public class ContactBook {
         return null;
     }
 
+    public boolean checkSamePhones() {
+
+        for (int i = 0; i < counter; i++) {
+            for (int j = 0; j < counter; j++) {
+
+                if(i != j && contacts[i].getPhone() == contacts[j].getPhone())
+                    return true;
+
+            }
+        }
+
+        return false;
+    }
 }

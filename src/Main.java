@@ -17,6 +17,13 @@ public class Main {
 
     public static final String GET_NAME = "GN";
 
+    private static final String EXISTS_PHONE  = "EP";
+
+    private static final String SHARED_PHONES = "There are contacts that share phone numbers.";
+
+    private static final String NO_SHARED_PHONES = "All contacts have different phone numbers.";
+
+
     //Constantes que definem as mensagens para o utilizador
     public static final String CONTACT_EXISTS = "contactBook.Contact already exists.";
     public static final String NAME_NOT_EXIST = "contactBook.Contact does not exist.";
@@ -58,6 +65,10 @@ public class Main {
                     break;
                 case GET_NAME:
                     getName(in,cBook);
+                    break;
+
+                case EXISTS_PHONE:
+                    checkRepeated(cBook);
                     break;
                 default:
                     System.out.println(COMMAND_ERROR);
@@ -165,5 +176,14 @@ public class Main {
             }
         }
         else System.out.println(BOOK_EMPTY);
+    }
+    private static void checkRepeated(ContactBook cbook) {
+
+        if(cbook.checkSamePhones())
+            System.out.println(SHARED_PHONES);
+
+        else
+            System.out.println(NO_SHARED_PHONES);
+
     }
 }

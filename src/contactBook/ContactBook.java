@@ -111,4 +111,26 @@ public class ContactBook {
         return contacts[currentContact++];
     }
 
+    public Contact oldestPhone(int phone) {
+
+        for( Contact c : contacts){
+            if (c.getPhone() == phone) return c;
+        }
+        return null;
+    }
+
+    public boolean multiPhone(int phone) {
+        for( int a = 0; a < counter; a++){
+            Contact c = contacts[a];
+            int cNum = c.getPhone();
+            String cName = c.getName();
+            String cMail = c.getEmail();
+            for(int i = 0; i < counter; i++){
+                Contact d = contacts[i];
+                if(d.getPhone() == cNum && i!=a)
+                    return true;
+            }
+        }
+        return false;
+    }
 }

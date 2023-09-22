@@ -27,7 +27,7 @@ public class Main {
     public static final String CONTACT_UPDATED = "contactBook.Contact updated.";
     public static final String BOOK_EMPTY = "contactBook.Contact book empty.";
     public static final String SAME_NUNMBER = "There are contacts that share phone numbers.";
-    public static final String ALL_DIF_NUMBER = "All contacts have different phone numbers";
+    public static final String ALL_DIF_NUMBER = "All contacts have different phone numbers.";
     public static final String QUIT_MSG = "Goodbye!";
     public static final String COMMAND_ERROR = "Unknown command.";
 
@@ -129,12 +129,12 @@ public class Main {
         int phone;
         phone = in.nextInt(); in.nextLine();
         if (cBook.hasPhone(phone)) {
-                Contact c = oldestPhone(phone);
-                System.out.println(c.getName() + "; " + c.getEmail() + "; " + c.getPhone());
+                Contact c = cBook.oldestPhone(phone);
+                System.out.println(c.getName());// + "; " + c.getEmail() + "; " + c.getPhone());
         } 
         else System.out.println(PHONE_NOT_EXIST);
     }
-    
+
     private static void setPhone(Scanner in, ContactBook cBook) {
         String name;
         int phone;
@@ -173,12 +173,13 @@ public class Main {
     private static void checkMultiPhone(ContactBook cBook) {
         if (cBook.getNumberOfContacts() > 1) {
             cBook.initializeIterator();
-            bool check = false;
+            boolean check = false;
             while( cBook.hasNext() && !check) {
                 Contact c = cBook.next();
-                check = multiPhone(c.getPhone());
+                check = cBook.multiPhone(c.getPhone());
             }
             if (check) { System.out.println(SAME_NUNMBER); }
+            else System.out.println(ALL_DIF_NUMBER);
         }
         else System.out.println(ALL_DIF_NUMBER);
     }

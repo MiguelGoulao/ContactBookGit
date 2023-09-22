@@ -35,7 +35,7 @@ public class Tests {
     @Test public void test3() { test("3_in_base_EP.txt","3_out_base_EP.txt"); }
 
 
-    private static final File BASE = new File("tests");
+    private static final File BASE = new File("C:\\Users\\bpegu\\Documents\\Faculdade\\2ºano\\LAP\\lap3\\miei-es-lab2\\tests");
 
     private PrintStream consoleStream;
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();

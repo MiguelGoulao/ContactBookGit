@@ -15,7 +15,7 @@ public class ContactBook {
         currentContact = -1;
     }
 
-    //Pre: name != null
+    // Pre: name != null
     public boolean hasContact(String name) {
         return searchIndex(name) >= 0;
     }
@@ -24,7 +24,7 @@ public class ContactBook {
         return counter;
     }
 
-    //Pre: name!= null && !hasContact(name)
+    // Pre: name!= null && !hasContact(name)
     public void addContact(String name, int phone, String email) {
         if (counter == contacts.length)
             resize();
@@ -32,30 +32,30 @@ public class ContactBook {
         counter++;
     }
 
-    //Pre: name != null && hasContact(name)
+    // Pre: name != null && hasContact(name)
     public void deleteContact(String name) {
         int index = searchIndex(name);
-        for(int i=index; i<counter; i++)
-            contacts[i] = contacts[i+1];
+        for (int i = index; i < counter; i++)
+            contacts[i] = contacts[i + 1];
         counter--;
     }
 
-    //Pre: name != null && hasContact(name)
+    // Pre: name != null && hasContact(name)
     public int getPhone(String name) {
         return contacts[searchIndex(name)].getPhone();
     }
 
-    //Pre: name != null && hasContact(name)
+    // Pre: name != null && hasContact(name)
     public String getEmail(String name) {
         return contacts[searchIndex(name)].getEmail();
     }
 
-    //Pre: name != null && hasContact(name)
+    // Pre: name != null && hasContact(name)
     public void setPhone(String name, int phone) {
         contacts[searchIndex(name)].setPhone(phone);
     }
 
-    //Pre: name != null && hasContact(name)
+    // Pre: name != null && hasContact(name)
     public void setEmail(String name, String email) {
         contacts[searchIndex(name)].setEmail(email);
     }
@@ -64,18 +64,19 @@ public class ContactBook {
         int i = 0;
         int result = -1;
         boolean found = false;
-        while (i<counter && !found)
+        while (i < counter && !found)
             if (contacts[i].getName().equals(name))
                 found = true;
             else
                 i++;
-        if (found) result = i;
+        if (found)
+            result = i;
         return result;
     }
 
     private void resize() {
-        Contact tmp[] = new Contact[2*contacts.length];
-        for (int i=0;i<counter; i++)
+        Contact tmp[] = new Contact[2 * contacts.length];
+        for (int i = 0; i < counter; i++)
             tmp[i] = contacts[i];
         contacts = tmp;
     }
@@ -85,10 +86,10 @@ public class ContactBook {
     }
 
     public boolean hasNext() {
-        return (currentContact >= 0 ) && (currentContact < counter);
+        return (currentContact >= 0) && (currentContact < counter);
     }
 
-    //Pre: hasNext()
+    // Pre: hasNext()
     public Contact next() {
         return contacts[currentContact++];
     }

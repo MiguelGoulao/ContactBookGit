@@ -8,7 +8,7 @@ Martim Latas 62943
 Francisco Silva 62815
 
 
-contact book -> hasPhone(int phone) return true se existir um contacto com aquele phone number;
+	contact book -> hasPhone(int phone) return true se existir um contacto com aquele phone number;
 
 		multiPhone(int phone) return true se existir mais do que um contact com o phone number dado;
   

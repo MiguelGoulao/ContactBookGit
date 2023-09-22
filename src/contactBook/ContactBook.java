@@ -93,6 +93,13 @@ public class ContactBook {
         return contacts[currentContact++];
     }
 
+    public boolean phoneNumberExists(int phone){
+        for(int i=0;i<counter;i++)
+            if (contacts[i].getPhone() == phone)
+                return true;
+        return false;
+    }
+
     public boolean sharePhoneNumbers() {
         for (int i = 0; i < counter; i++) {
             int number = contacts[i].getPhone();

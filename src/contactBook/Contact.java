@@ -1,5 +1,5 @@
 package contactBook;
-
+//Comentario de teste de branch
 public class Contact {
     private String name;
     private int phone;

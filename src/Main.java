@@ -10,7 +10,7 @@ public class Main {
     public static final String REMOVE_CONTACT = "RC";
     public static final String GET_NAME       = "GN"; //wiirijo
     public static final String GET_PHONE      = "GP";
-    public static final String EQUAL_PHONES = "EP";
+    public static final String EQUAL_PHONES   = "EP";   //jbrilha
     public static final String GET_EMAIL      = "GE";
     public static final String SET_PHONE      = "SP";
     public static final String SET_EMAIL      = "SE";
@@ -21,13 +21,13 @@ public class Main {
     //Constantes que definem as mensagens para o utilizador
     public static final String CONTACT_EXISTS = "contactBook.Contact already exists.";
     public static final String NAME_NOT_EXIST = "contactBook.Contact does not exist.";
-    public static final String NUMBER_NOT_EXIST = "contactBook.Contact does not exist.";  //wiirijo
+    public static final String NUMBER_NOT_EXIST = "Phone number does not exist.";  //wiirijo
     public static final String CONTACT_ADDED = "contactBook.Contact added.";
     public static final String CONTACT_REMOVED = "contactBook.Contact removed.";
     public static final String CONTACT_UPDATED = "contactBook.Contact updated.";
     public static final String BOOK_EMPTY = "contactBook.Contact book empty.";
-    public static final String DIFFERENT_PHONES = "All contacts have different phone numbers.";
-    public static final String SHARED_PHONES = "Some contacts share the same phone number.";
+    public static final String DIFFERENT_PHONES = "All contacts have different phone numbers."; //jbrilha
+    public static final String SHARED_PHONES = "There are contacts that share phone numbers.";  //jbrilha
     public static final String QUIT_MSG = "Goodbye!";
     public static final String COMMAND_ERROR = "Unknown command.";
 
@@ -117,10 +117,10 @@ public class Main {
 
     }
     private static void getName(Scanner in, ContactBook cBook) {
-        String number;
-        number = in.nextLine();
-        if (cBook.hasContact(number)) {
-            System.out.println(cBook.getPhone(number));
+        int number;
+        number = in.nextInt(); in.nextLine();
+        if (cBook.hasPhoneNumber(number)) {
+            System.out.println(cBook.getName(number));
         }
         else System.out.println(NUMBER_NOT_EXIST);
     }

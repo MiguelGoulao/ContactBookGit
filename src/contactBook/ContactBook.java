@@ -18,6 +18,17 @@ public class ContactBook {
         return searchIndex(name) >= 0;
     }
 
+    public boolean hasPhoneNumber(int number) {
+        for(Contact contact : contacts) {
+            if(contact == null)
+                continue;
+
+            if(contact.getPhone() == number)
+                return true;
+        }
+        return false;
+    }
+
     //Pre: name != null                         //wiirijo
     public boolean hasNumber(int phone) {
         return searchIndexNr(phone) >= 0;

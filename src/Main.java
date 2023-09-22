@@ -155,10 +155,11 @@ public class Main {
     }
 
     private static void equalPhones(ContactBook cBook) {
-        if (cBook.getNumberOfContacts() > 0) {
+        if (cBook.getNumberOfContacts() > 1) {
             if (cBook.hasEqualPhones()) {
                 System.out.println(SHARED_PHONES);
             }
+            else System.out.println(DIFFERENT_PHONES);
         }
         else System.out.println(DIFFERENT_PHONES);
     }

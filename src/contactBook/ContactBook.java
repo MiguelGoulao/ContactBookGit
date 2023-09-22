@@ -93,14 +93,21 @@ public class ContactBook {
 
     public boolean hasEqualPhones() {
         for (Contact contact1 : contacts) {
+            if (contact1 == null) {
+                continue; // Skip null or contacts with null phone numbers
+            }
+
             for (Contact contact2 : contacts) {
-                if(!contact1.equals(contact2)) {
-                    if (contact1.getPhone() == contact2.getPhone()) {
-                        return true; // Found a contact with the same phone number
-                    }
+                if (contact2 == null || contact2.equals(contact1)) {
+                    continue; // Skip null contacts, contacts with null phone numbers, and self-comparisons
+                }
+
+                if (contact1.getPhone() == contact2.getPhone()) {
+                    return true; // Found a contact with the same phone number
                 }
             }
         }
         return false;
     }
+
 }

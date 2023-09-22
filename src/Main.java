@@ -10,11 +10,11 @@ public class Main {
     public static final String REMOVE_CONTACT = "RC";
     public static final String GET_PHONE      = "GP";
     public static final String GET_EMAIL      = "GE";
-    public static final String GET_NAME      = "GN";
+    public static final String GET_NAME       = "GN";
     public static final String SET_PHONE      = "SP";
     public static final String SET_EMAIL      = "SE";
     public static final String LIST_CONTACTS  = "LC";
-    public static final String  EP_COMMAND     = "EP";
+    public static final String EP_COMMAND     = "EP";
     public static final String QUIT           = "Q";
 
     //Constantes que definem as mensagens para o utilizador
@@ -25,6 +25,8 @@ public class Main {
     public static final String CONTACT_REMOVED = "contactBook.Contact removed.";
     public static final String CONTACT_UPDATED = "contactBook.Contact updated.";
     public static final String BOOK_EMPTY = "contactBook.Contact book empty.";
+    public static final String ALL_DIF_MSG = "All contacts have different phone numbers.";
+    public static final String NOT_ALL_DIF_MSG = "There are contacts that share phone numbers.";
     public static final String QUIT_MSG = "Goodbye!";
     public static final String COMMAND_ERROR = "Unknown command.";
 
@@ -60,7 +62,7 @@ public class Main {
                     listAllContacts(cBook);
                     break;
                 case EP_COMMAND:
-                    //TODO
+                    checkPhoneNumbers(cBook);
                     break;
                 default:
                     System.out.println(COMMAND_ERROR);
@@ -166,5 +168,18 @@ public class Main {
             }
         }
         else System.out.println(BOOK_EMPTY);
+    }
+
+    /**
+     * Check if there are contacts with the same phone number (EP command).
+     * This operation always succeeds. In case there are contacts with the same phone number,
+     * the feedback message is "There are contacts that share phone numbers.".
+     * Otherwise, the feedback message is "All contacts have different phone numbers".
+     */
+    private static void checkPhoneNumbers(ContactBook cBook) {
+        if (cBook.getNumberOfContacts()<1 || cBook.allDifferent())
+            System.out.println(ALL_DIF_MSG);
+        else
+            System.out.println(NOT_ALL_DIF_MSG);
     }
 }

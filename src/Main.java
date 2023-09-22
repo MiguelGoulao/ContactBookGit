@@ -65,7 +65,7 @@ public class Main {
     }
 
     private static String getCommand(Scanner in) {
-        String input;
+        String input ;
 
         input = in.nextLine().toUpperCase();
         return input;

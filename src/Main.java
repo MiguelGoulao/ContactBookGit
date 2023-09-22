@@ -8,6 +8,7 @@ public class Main {
     //Constantes que definem os comandos
     public static final String ADD_CONTACT    = "AC";
     public static final String REMOVE_CONTACT = "RC";
+    public static final String GET_NAME       = "GN"; //wiirijo
     public static final String GET_PHONE      = "GP";
     public static final String EQUAL_PHONES = "EP";
     public static final String GET_EMAIL      = "GE";
@@ -20,6 +21,7 @@ public class Main {
     //Constantes que definem as mensagens para o utilizador
     public static final String CONTACT_EXISTS = "contactBook.Contact already exists.";
     public static final String NAME_NOT_EXIST = "contactBook.Contact does not exist.";
+    public static final String NUMBER_NOT_EXIST = "contactBook.Contact does not exist.";  //wiirijo
     public static final String CONTACT_ADDED = "contactBook.Contact added.";
     public static final String CONTACT_REMOVED = "contactBook.Contact removed.";
     public static final String CONTACT_UPDATED = "contactBook.Contact updated.";
@@ -44,6 +46,9 @@ public class Main {
                     break;
                 case GET_PHONE:
                     getPhone(in,cBook);
+                    break;
+                case GET_NAME:   //wiirijo
+                    getName(in, cBook);
                     break;
                 case GET_EMAIL:
                     getEmail(in,cBook);
@@ -109,6 +114,15 @@ public class Main {
             System.out.println(cBook.getPhone(name));
         }
         else System.out.println(NAME_NOT_EXIST);
+
+    }
+    private static void getName(Scanner in, ContactBook cBook) {
+        String number;
+        number = in.nextLine();
+        if (cBook.hasContact(number)) {
+            System.out.println(cBook.getPhone(number));
+        }
+        else System.out.println(NUMBER_NOT_EXIST);
     }
 
     private static void getEmail(Scanner in, ContactBook cBook) {

@@ -1,7 +1,5 @@
 package contactBook;
 
-import contactBook.Contact;
-
 public class ContactBook {
     static final int DEFAULT_SIZE = 100;
 
@@ -93,4 +91,16 @@ public class ContactBook {
         return contacts[currentContact++];
     }
 
+    public boolean hasEqualPhones() {
+        for (Contact contact1 : contacts) {
+            for (Contact contact2 : contacts) {
+                if(!contact1.equals(contact2)) {
+                    if (contact1.getPhone() == contact2.getPhone()) {
+                        return true; // Found a contact with the same phone number
+                    }
+                }
+            }
+        }
+        return false;
+    }
 }

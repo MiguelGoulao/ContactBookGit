@@ -13,6 +13,8 @@ public class Main {
     public static final String SET_EMAIL = "SE";
     public static final String LIST_CONTACTS = "LC";
     public static final String QUIT = "Q";
+    public static final String REPETED = "EP";
+    public static final String GET_CONTACT = "GN";
 
     // Constantes que definem as mensagens para o utilizador
     public static final String CONTACT_EXISTS = "contactBook.Contact already exists.";
@@ -52,6 +54,12 @@ public class Main {
                 case LIST_CONTACTS:
                     listAllContacts(cBook);
                     break;
+                case GET_CONTACT:
+                    getContact(in, cBook);
+                    break;
+                case REPETED:
+                    getRepeted(in, cBook);
+                    break;
                 default:
                     System.out.println(COMMAND_ERROR);
             }
@@ -61,6 +69,12 @@ public class Main {
         System.out.println(QUIT_MSG);
         System.out.println();
         in.close();
+    }
+
+    private static void getRepeted(Scanner in, ContactBook cBook) {
+    }
+
+    private static void getContact(Scanner in, ContactBook cBook) {
     }
 
     private static String getCommand(Scanner in) {

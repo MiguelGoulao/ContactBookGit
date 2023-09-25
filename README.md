@@ -1,4 +1,6 @@
 # ContactBookGit
-This is a starter kit for the first lab of the Software Engineering Course.
-Fork this project to make your own version of it.
+This is a forked and changed version of the original contactBook by Miguel Goulão
+
+Rodrigo Patrício 63230
+Tiago Gonçalves 60860
 

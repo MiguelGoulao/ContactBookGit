@@ -160,7 +160,8 @@ public class Main {
             cBook.initializeIterator();
             while( cBook.hasNext() && !equal ) {
                 Contact c = cBook.next();
-                if (cBook.getPhone(c.getName()) == cBook.getPhone(c.getName())) {
+                Contact c2 = cBook.next();
+                if (cBook.getPhone(c.getName()) == cBook.getPhone(c2.getName())) {
                     equal = true;
                 }
             }

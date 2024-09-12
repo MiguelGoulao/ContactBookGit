@@ -165,12 +165,10 @@ public class Main {
                 }
             }
         }
-        if (equal) {
+        if (equal)
             System.out.println(EQUAL_CONTACT);
-        }
-        else {
+        else
             System.out.println(DIFFERENT_CONTACT);
-        }
     }
 
 }

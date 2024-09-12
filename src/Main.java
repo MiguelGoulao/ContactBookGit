@@ -54,6 +54,8 @@ public class Main {
                 case LIST_CONTACTS:
                     listAllContacts(cBook);
                     break;
+                case CONTACT_NUMBER:
+                    lookupContactNumber(in,cBook);
                 default:
                     System.out.println(COMMAND_ERROR);
             }
@@ -147,5 +149,10 @@ public class Main {
             }
         }
         else System.out.println(BOOK_EMPTY);
+    }
+
+    private static void lookupContactNumber(Scanner in, ContactBook cBook) {
+        int phone;
+        phone = in.nextInt(); in.nextLine();
     }
 }

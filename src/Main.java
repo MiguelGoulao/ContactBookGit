@@ -155,23 +155,22 @@ public class Main {
     }
 
     private static void searchContact(ContactBook cBook) {
+        boolean equal = false;
         if (cBook.getNumberOfContacts() != 0) {
             cBook.initializeIterator();
-            boolean equal = false;
             while( cBook.hasNext() && !equal ) {
                 Contact c = cBook.next();
                 if (cBook.getPhone(c.getName()) == cBook.getPhone(c.getName())) {
                     equal = true;
                 }
             }
-            if (equal) {
-                System.out.println(EQUAL_CONTACT);
-            }
-            else {
-                System.out.println(DIFFERENT_CONTACT);
-            }
         }
-        else System.out.println(BOOK_EMPTY);
+        if (equal) {
+            System.out.println(EQUAL_CONTACT);
+        }
+        else {
+            System.out.println(DIFFERENT_CONTACT);
+        }
     }
 
 }

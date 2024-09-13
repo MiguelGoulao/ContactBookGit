@@ -115,4 +115,7 @@ public class ContactBook {
         return contacts[currentContact++];
     }
 
+    public boolean checkEqualPhones() {
+        return false;
+    }
 }

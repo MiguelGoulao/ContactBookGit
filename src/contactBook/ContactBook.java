@@ -1,5 +1,9 @@
 package contactBook;
 
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+
 public class ContactBook {
     static final int DEFAULT_SIZE = 100;
 
@@ -99,5 +103,11 @@ public class ContactBook {
             if (c.getPhone() == phone) return c;
         }
         return null;
+    }
+
+    // checks if there are at least two equal phone numbers
+    public boolean equalNumbers() {
+        Set<Contact> s = new HashSet<Contact>(Arrays.asList(contacts));
+        return s.size() == counter;
     }
 }

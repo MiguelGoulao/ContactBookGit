@@ -93,4 +93,13 @@ public class ContactBook {
         return contacts[currentContact++];
     }
 
+    // returns the contact that has [phone] as its phone number, null if there isn't one
+    public Contact getContactFromPhone(int phone) {
+        this.initializeIterator();
+        while( this.hasNext() ) {
+            Contact c = this.next();
+            if (c.getPhone() == phone) return c;
+        }
+        return null;
+    }
 }

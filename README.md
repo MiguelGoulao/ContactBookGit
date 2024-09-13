@@ -6,5 +6,7 @@ You will notice some things need to be updated in this code. It was originally m
 
 # Authors:
 Daniel Agostinho, nº 65330
+
 Miguel Flor, nº 65969
+
 Nelson Martins, nº 66081

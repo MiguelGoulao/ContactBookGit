@@ -58,6 +58,7 @@ public class Main {
                     break;
                 case CONTACT_NUMBER:
                     lookupContactNumber(in,cBook);
+                    break;
                 default:
                     System.out.println(COMMAND_ERROR);
             }
@@ -157,5 +158,18 @@ public class Main {
         int phone;
         phone = in.nextInt(); in.nextLine();
 
+        boolean found = false;
+        Contact contact = null;
+        cBook.initializeIterator();
+
+        while (cBook.hasNext() && !found) {
+            contact = cBook.next();
+            if (contact.getPhone() == phone) {
+                System.out.println(contact.getName());
+                found = true;
+            }
+        }
+
+        if (!found) System.out.println(PHONE_NOT_EXIST);
     }
 }

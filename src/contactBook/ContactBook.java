@@ -44,6 +44,28 @@ public class ContactBook {
     public int getPhone(String name) {
         return contacts[searchIndex(name)].getPhone();
     }
+    public String getNameByPhone(int phone) {
+        int index = searchIndexByPhone(phone);
+        if(index<0){
+            return null;
+        }else{
+            return contacts[index].getName();
+        }
+
+    }
+
+    private int searchIndexByPhone(int phone) {
+        int i = 0;
+        int result = -1;
+        boolean found = false;
+        while (i<counter && !found)
+            if (contacts[i].getPhone() == phone)
+                found = true;
+            else
+                i++;
+        if (found) result = i;
+        return result;
+    }
 
     //Pre: name != null && hasContact(name)
     public String getEmail(String name) {

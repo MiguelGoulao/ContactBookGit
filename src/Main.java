@@ -1,5 +1,7 @@
 import contactBook.Contact;
 import contactBook.ContactBook;
+
+import java.util.Iterator;
 import java.util.Scanner;
 
 
@@ -12,7 +14,7 @@ public class Main {
     public static final String SET_PHONE      = "SP";
     public static final String SET_EMAIL      = "SE";
     public static final String LIST_CONTACTS  = "LC";
-    public static final String CONTACT_NUMBER  = "CN";
+    public static final String CONTACT_NUMBER  = "GN";
     public static final String QUIT           = "Q";
 
     //Constantes que definem as mensagens para o utilizador
@@ -154,5 +156,6 @@ public class Main {
     private static void lookupContactNumber(Scanner in, ContactBook cBook) {
         int phone;
         phone = in.nextInt(); in.nextLine();
+
     }
 }

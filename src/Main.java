@@ -1,7 +1,6 @@
 import contactBook.Contact;
 import contactBook.ContactBook;
 
-import java.util.Iterator;
 import java.util.Scanner;
 
 
@@ -159,7 +158,7 @@ public class Main {
         phone = in.nextInt(); in.nextLine();
 
         boolean found = false;
-        Contact contact = null;
+        Contact contact;
         cBook.initializeIterator();
 
         while (cBook.hasNext() && !found) {

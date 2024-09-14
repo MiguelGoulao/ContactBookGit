@@ -61,6 +61,8 @@ public class Main {
                 case FIND_CONTACT:
                     getContactFromPhone(in, cBook);
                     break;
+                case HAS_SAME_PHONE:
+                    existsWithSamePhone(cBook);
                 default:
                     System.out.println(COMMAND_ERROR);
             }
@@ -165,4 +167,12 @@ public class Main {
         }
         else System.out.println(PHONE_NOT_EXISTS);
     }
+
+    public static void existsWithSamePhone(ContactBook cBook) {
+        if (cBook.hasSamePhone()) {
+            System.out.println(SAME_PHONE_EXISTS);
+        }
+        else System.out.println(SAME_PHONE_NOT_EXIST);
+    }
+
 }

@@ -1,6 +1,7 @@
 import contactBook.Contact;
 import contactBook.ContactBook;
 
+import java.text.CompactNumberFormat;
 import java.util.Scanner;
 
 
@@ -13,6 +14,7 @@ public class Main {
     public static final String SET_PHONE      = "SP";
     public static final String SET_EMAIL      = "SE";
     public static final String LIST_CONTACTS  = "LC";
+    public static final String GET_NUMBER     = "GN";
     public static final String QUIT           = "Q";
 
     //Constantes que definem as mensagens para o utilizador
@@ -53,6 +55,10 @@ public class Main {
                 case LIST_CONTACTS:
                     listAllContacts(cBook);
                     break;
+                case GET_NUMBER:
+                    getContact(in,cBook);
+                    break;
+
                 default:
                     System.out.println(COMMAND_ERROR);
             }
@@ -63,6 +69,17 @@ public class Main {
         System.out.println();
         in.close();
     }
+
+    private static void getContact(Scanner in, ContactBook cBook) {
+        int phoneNumber = Integer.parseInt(in.nextLine());
+        String contactName = cBook.getContactName(phoneNumber);
+        if(contactName.equals("")){
+            System.out.println("Phone number does not exist.");
+        }
+        else
+            System.out.println(contactName);
+    }
+
 
     private static String getCommand(Scanner in) {
         String input;

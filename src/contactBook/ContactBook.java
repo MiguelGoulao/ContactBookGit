@@ -24,6 +24,17 @@ public class ContactBook {
         return counter;
     }
 
+    public String getContactName( int phoneNumber) {
+        String contactName = "";
+        if(getNumberOfContacts() == 0)
+            return contactName;
+        for (int i = 0; i < getNumberOfContacts(); i++) {
+            if (contacts[i].getPhone() == phoneNumber)
+                return contacts[i].getName();
+        }
+        return contactName;
+    }
+
     //Pre: name!= null && !hasContact(name)
     public void addContact(String name, int phone, String email) {
         if (counter == contacts.length)

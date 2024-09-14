@@ -10,7 +10,7 @@ public class ContactBook {
     private int counter;
     private Contact[] contacts;
     private int currentContact;
-    private HashMap<Integer, Integer> numberOfContacts;
+    private final HashMap<Integer, Integer> numberOfContacts;
 
     public ContactBook() {
         counter = 0;

@@ -16,12 +16,12 @@ public class Main {
     public static final String QUIT           = "Q";
 
     //Constantes que definem as mensagens para o utilizador
-    public static final String CONTACT_EXISTS = "contactBook.Contact already exists.";
-    public static final String NAME_NOT_EXIST = "contactBook.Contact does not exist.";
-    public static final String CONTACT_ADDED = "contactBook.Contact added.";
-    public static final String CONTACT_REMOVED = "contactBook.Contact removed.";
-    public static final String CONTACT_UPDATED = "contactBook.Contact updated.";
-    public static final String BOOK_EMPTY = "contactBook.Contact book empty.";
+    public static final String CONTACT_EXISTS = "Contact already exists.";
+    public static final String NAME_NOT_EXIST = "Contact does not exist.";
+    public static final String CONTACT_ADDED = "Contact added.";
+    public static final String CONTACT_REMOVED = "Contact removed.";
+    public static final String CONTACT_UPDATED = "Contact updated.";
+    public static final String BOOK_EMPTY = "Contact book empty.";
     public static final String QUIT_MSG = "Goodbye!";
     public static final String COMMAND_ERROR = "Unknown command.";
 

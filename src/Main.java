@@ -26,7 +26,7 @@ public class Main {
     public static final String BOOK_EMPTY = "contactBook.Contact book empty.";
     public static final String QUIT_MSG = "Goodbye!";
     public static final String COMMAND_ERROR = "Unknown command.";
-    public static final String CONTACT_NOT_EXISTS = "Phone number does not exist.";
+    public static final String PHONE_NOT_EXISTS = "Phone number does not exist.";
     public static final String SAME_PHONE_EXISTS = "There are contacts that share phone numbers.";
     public static final String SAME_PHONE_NOT_EXIST = "All contacts have different phone numbers.";
 
@@ -57,6 +57,9 @@ public class Main {
                     break;
                 case LIST_CONTACTS:
                     listAllContacts(cBook);
+                    break;
+                case FIND_CONTACT:
+                    getContactFromPhone(in, cBook);
                     break;
                 default:
                     System.out.println(COMMAND_ERROR);
@@ -151,5 +154,15 @@ public class Main {
             }
         }
         else System.out.println(BOOK_EMPTY);
+    }
+
+    public static void getContactFromPhone(Scanner in, ContactBook cBook) {
+        int phone;
+        phone = in.nextInt(); in.nextLine();
+        if (cBook.hasPhone(phone)) {
+            Contact c = cBook.getFirstWithPhone(phone);
+            System.out.println(c.getName());
+        }
+        else System.out.println(PHONE_NOT_EXISTS);
     }
 }

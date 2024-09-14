@@ -2,17 +2,21 @@ package contactBook;
 
 import contactBook.Contact;
 
+import java.util.HashMap;
+
 public class ContactBook {
     static final int DEFAULT_SIZE = 100;
 
     private int counter;
     private Contact[] contacts;
     private int currentContact;
+    private HashMap<Integer, Integer> numberOfContacts;
 
     public ContactBook() {
         counter = 0;
         contacts = new Contact[DEFAULT_SIZE];
         currentContact = -1;
+        numberOfContacts = new HashMap<>();
     }
 
     //Pre: name != null
@@ -30,6 +34,10 @@ public class ContactBook {
             resize();
         contacts[counter] = new Contact(name, phone, email);
         counter++;
+        if(numberOfContacts.containsKey(phone))
+            numberOfContacts.put(phone, numberOfContacts.get(phone) + 1);
+        else numberOfContacts.put(phone, 1);
+
     }
 
     //Pre: name != null && hasContact(name)
@@ -38,6 +46,9 @@ public class ContactBook {
         for(int i=index; i<counter; i++)
             contacts[i] = contacts[i+1];
         counter--;
+        if(numberOfContacts.get(getPhone(name)) > 1)
+            numberOfContacts.put(getPhone(name), numberOfContacts.get(getPhone(name)) - 1);
+        else numberOfContacts.remove(getPhone(name));
     }
 
     //Pre: name != null && hasContact(name)
@@ -93,4 +104,10 @@ public class ContactBook {
         return contacts[currentContact++];
     }
 
+    public boolean hasSamePhone() {
+        for(int number: numberOfContacts.values())
+            if(number > 1)
+                return true;
+        return false;
+    }
 }

@@ -4,17 +4,20 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
+
 public class ContactBook {
     static final int DEFAULT_SIZE = 100;
 
     private int counter;
     private Contact[] contacts;
     private int currentContact;
+    private int phoneNumberCounter;
 
     public ContactBook() {
         counter = 0;
         contacts = new Contact[DEFAULT_SIZE];
         currentContact = -1;
+        phoneNumberCounter = 0;
     }
 
     //Pre: name != null
@@ -28,18 +31,34 @@ public class ContactBook {
 
     //Pre: name!= null && !hasContact(name)
     public void addContact(String name, int phone, String email) {
+
+        /**
+         * In case does not exist any contact with the phone number added we need to register it in the counter
+         */
+        if(getContactFromPhone(phone) == null) {
+            phoneNumberCounter++;
+        }
         if (counter == contacts.length)
             resize();
         contacts[counter] = new Contact(name, phone, email);
         counter++;
+
     }
 
     //Pre: name != null && hasContact(name)
     public void deleteContact(String name) {
         int index = searchIndex(name);
+        int samePhoneNumber = getPhone(name);
         for(int i=index; i<counter; i++)
             contacts[i] = contacts[i+1];
         counter--;
+
+        /**
+         * In case that does not exist contacts with the phone number of this contact we need to delete it of the counter
+         */
+        if(getContactFromPhone(samePhoneNumber) == null) {
+            phoneNumberCounter--;
+        }
     }
 
     //Pre: name != null && hasContact(name)
@@ -54,6 +73,12 @@ public class ContactBook {
 
     //Pre: name != null && hasContact(name)
     public void setPhone(String name, int phone) {
+        /**
+         * In case the set phone number is not in any contact saved, we need to add it in the counter
+         */
+        if(getContactFromPhone(phone) == null)
+            phoneNumberCounter++;
+
         contacts[searchIndex(name)].setPhone(phone);
     }
 
@@ -106,8 +131,8 @@ public class ContactBook {
     }
 
     // checks if there are at least two equal phone numbers
-    public boolean equalNumbers() {
-        Set<Contact> s = new HashSet<Contact>(Arrays.asList(contacts));
-        return s.size() == counter;
+    public boolean differentNumbers() {
+            return phoneNumberCounter == counter;
     }
+
 }

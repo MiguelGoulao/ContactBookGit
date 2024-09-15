@@ -1,6 +1,7 @@
 import contactBook.Contact;
 import contactBook.ContactBook;
 
+import java.util.Iterator;
 import java.util.Scanner;
 
 
@@ -154,9 +155,9 @@ public class Main {
     }
 
     private static void repeated_phones(ContactBook cBook) {
-        if(cBook.differentPhones())
-            System.out.println(DIFERENT_PHONES);
+        if(cBook.samePhones()){
+            System.out.println(SAME_PHONES);}
         else
-            System.out.println(SAME_PHONES);
+            System.out.println(DIFERENT_PHONES);
     }
 }

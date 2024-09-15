@@ -7,6 +7,6 @@ You will notice some things need to be updated in this code. It was originally m
 Project team:
 Francisco Sobral de Almeida - 65472
 /
-Pedro Nuno Silva - 66058
+Pedro Nuno - 66058
 /
 Daniel Borysenkov - 65375

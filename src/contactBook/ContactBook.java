@@ -2,6 +2,8 @@ package contactBook;
 
 import contactBook.Contact;
 
+import java.util.Iterator;
+
 public class ContactBook {
     static final int DEFAULT_SIZE = 100;
 
@@ -78,6 +80,16 @@ public class ContactBook {
         for (int i=0;i<counter; i++)
             tmp[i] = contacts[i];
         contacts = tmp;
+    }
+
+    public String getNameOfNumber(int number){
+        initializeIterator();
+        while(hasNext()){
+            Contact person = next();
+            if(person.getPhone() == number )
+                return person.getName();
+        }
+        return null;
     }
 
     public void initializeIterator() {

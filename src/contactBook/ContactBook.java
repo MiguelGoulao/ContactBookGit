@@ -110,4 +110,17 @@ public class ContactBook {
                 return true;
         return false;
     }
+
+    public boolean hasPhone(int phone) {
+        return numberOfContacts.containsKey(phone);
+    }
+
+    //Pre: hasPhone()
+    public Contact getFirstWithPhone(int phone) {
+        int i = 0;
+        while(contacts[i].getPhone() != phone){
+            i++;
+        }
+        return contacts[i];
+    }
 }

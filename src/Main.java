@@ -160,7 +160,12 @@ public class Main {
     }
 
     private static void FindContactWithNumber(Scanner in, ContactBook cBook) {
-
+        int phone;
+        phone = in.nextInt(); in.nextLine();
+        Contact contact;
+        contact = cBook.getContactByNumber(phone);
+        if (contact != null) System.out.println(contact.getName());
+        else System.out.println(NO_PHONE);
     }
 
     private static void CheckRepeatedPhones(ContactBook cBook) {

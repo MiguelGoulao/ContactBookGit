@@ -63,7 +63,15 @@ public class ContactBook {
 
     //Pre: name != null && hasContact(name)
     public void setPhone(String name, int phone) {
+        if(numberOfContacts.get(getPhone(name)) > 1)
+            numberOfContacts.put(getPhone(name), numberOfContacts.get(getPhone(name)) - 1);
+        else numberOfContacts.remove(getPhone(name));
+
         contacts[searchIndex(name)].setPhone(phone);
+
+        if(numberOfContacts.containsKey(phone))
+            numberOfContacts.put(phone, numberOfContacts.get(phone) + 1);
+        else numberOfContacts.put(phone, 1);
     }
 
     //Pre: name != null && hasContact(name)

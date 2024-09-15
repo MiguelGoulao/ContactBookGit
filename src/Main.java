@@ -1,7 +1,6 @@
 import contactBook.Contact;
 import contactBook.ContactBook;
 
-import java.util.Iterator;
 import java.util.Scanner;
 
 

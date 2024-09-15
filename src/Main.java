@@ -58,6 +58,12 @@ public class Main {
                 case LIST_CONTACTS:
                     listAllContacts(cBook);
                     break;
+                case GET_CONTACT:
+                    FindContactWithNumber(in, cBook);
+                    break;
+                case CHECK_PHONE:
+                    CheckRepeatedPhones(cBook);
+                    break;
                 default:
                     System.out.println(COMMAND_ERROR);
             }
@@ -153,4 +159,11 @@ public class Main {
         else System.out.println(BOOK_EMPTY);
     }
 
+    private static void FindContactWithNumber(Scanner in, ContactBook cBook) {
+
+    }
+
+    private static void CheckRepeatedPhones(ContactBook cBook) {
+
+    }
 }

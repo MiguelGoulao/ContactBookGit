@@ -1,8 +1,8 @@
 # ContactBookGit
 ## Members of the group
 
-Joana Neves        nr. 6
+Joana Neves        nr. 65441
 
-Madalena Ezequiel  nr. 657825
+Madalena Ezequiel  nr. 65782
 
-Tiago Dias         nr. 666131
+Tiago Dias         nr. 66131

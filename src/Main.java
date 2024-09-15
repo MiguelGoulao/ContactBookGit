@@ -56,6 +56,8 @@ public class Main {
                 case LIST_CONTACTS:
                     listAllContacts(cBook);
                     break;
+                case REPEATED_PHONES:
+                    repeated_phones(cBook);
                 default:
                     System.out.println(COMMAND_ERROR);
             }
@@ -66,7 +68,6 @@ public class Main {
         System.out.println();
         in.close();
     }
-
 
     private static String getCommand(Scanner in) {
         String input;
@@ -150,5 +151,12 @@ public class Main {
             }
         }
         else System.out.println(BOOK_EMPTY);
+    }
+
+    private static void repeated_phones(ContactBook cBook) {
+        if(cBook.differentPhones())
+            System.out.println(DIFERENT_PHONES);
+        else
+            System.out.println(SAME_PHONES);
     }
 }

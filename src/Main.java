@@ -63,6 +63,7 @@ public class Main {
                     break;
                 case HAS_SAME_PHONE:
                     existsWithSamePhone(cBook);
+                    break;
                 default:
                     System.out.println(COMMAND_ERROR);
             }

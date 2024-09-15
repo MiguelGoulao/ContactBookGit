@@ -43,12 +43,12 @@ public class ContactBook {
     //Pre: name != null && hasContact(name)
     public void deleteContact(String name) {
         int index = searchIndex(name);
-        for(int i=index; i<counter; i++)
-            contacts[i] = contacts[i+1];
-        counter--;
         if(numberOfContacts.get(getPhone(name)) > 1)
             numberOfContacts.put(getPhone(name), numberOfContacts.get(getPhone(name)) - 1);
         else numberOfContacts.remove(getPhone(name));
+        for(int i=index; i<counter; i++)
+            contacts[i] = contacts[i+1];
+        counter--;
     }
 
     //Pre: name != null && hasContact(name)

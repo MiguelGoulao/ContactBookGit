@@ -1,5 +1,5 @@
-## ContactBookGit
-# Members of the group
+# ContactBookGit
+## Members of the group
 
 Joana Neves        nr. 6
 

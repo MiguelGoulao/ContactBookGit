@@ -147,4 +147,15 @@ public class Main {
         }
         else System.out.println(BOOK_EMPTY);
     }
+
+    private static void getNumber(Scanner in, ContactBook cBook) {
+        int number;
+        number = in.nextInt(); in.nextLine();
+        Contact contact = cBook.getNumber(number);
+        if (contact != null) {
+            System.out.println(contact.getName());
+        }
+        else System.out.println(NUMBER_NOT_EXIST);
+    }
+
 }

@@ -15,6 +15,12 @@ public class ContactBook {
         currentContact = -1;
     }
 
+    public ContactBook(ContactBook cBook) {
+        counter = cBook.getNumberOfContacts();
+        contacts = cBook.getContacts();
+        currentContact = cBook.getCurrentContact();
+    }
+
     //Pre: name != null
     public boolean hasContact(String name) {
         return searchIndex(name) >= 0;
@@ -23,6 +29,10 @@ public class ContactBook {
     public int getNumberOfContacts() {
         return counter;
     }
+
+    private Contact[] getContacts () {return contacts;}
+
+    private int getCurrentContact() {return currentContact;}
 
     //Pre: name!= null && !hasContact(name)
     public void addContact(String name, int phone, String email) {

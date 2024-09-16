@@ -26,7 +26,7 @@ public class Main {
     public static final String BOOK_EMPTY = "contactBook.Contact book empty.";
     public static final String NO_PHONE = "Phone number does not exist.";
     public static final String SHARED_PHONE_NUMBERS = "There are contacts that share phone numbers.";
-    public static final String NO_SHARED_PHONE_NUMBERS = "All contacts have different phone numbers";
+    public static final String NO_SHARED_PHONE_NUMBERS = "All contacts have different phone numbers.";
     public static final String QUIT_MSG = "Goodbye!";
     public static final String COMMAND_ERROR = "Unknown command.";
 
@@ -169,6 +169,21 @@ public class Main {
     }
 
     private static void CheckRepeatedPhones(ContactBook cBook) {
+        boolean repeated = false;
+        cBook.initializeIterator();
+        while( cBook.hasNext() && !repeated ) {
+            Contact c = cBook.next();
+            ContactBook cBookTmp = new ContactBook(cBook);
+            while( cBookTmp.hasNext() && !repeated ) {
+                Contact d = cBookTmp.next();
+                if (c.sameNumber(d))
+                    repeated =true;
 
+            }
+        }
+        if (repeated)
+            System.out.println(SHARED_PHONE_NUMBERS);
+        else
+            System.out.println(NO_SHARED_PHONE_NUMBERS);
     }
 }

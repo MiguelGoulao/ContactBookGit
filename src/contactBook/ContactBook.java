@@ -60,6 +60,24 @@ public class ContactBook {
         contacts[searchIndex(name)].setEmail(email);
     }
 
+    //Checks if there repeated phone numbers
+    public boolean repeatedPhones() {
+        boolean repeatedPhones = false;
+        for (int i = 0; i < counter && !repeatedPhones; i++)
+        {
+            Contact c1 =  contacts[i];
+            for (int j = 0; j < counter && !repeatedPhones; j++)
+            {
+                Contact c2 = contacts[j];
+
+                if (c1.getPhone() == c2.getPhone() && !c1.equals(c2))
+                    repeatedPhones = true;
+            }
+        }
+        return repeatedPhones;
+    }
+
+
     private int searchIndex(String name) {
         int i = 0;
         int result = -1;
@@ -92,5 +110,4 @@ public class ContactBook {
     public Contact next() {
         return contacts[currentContact++];
     }
-
 }

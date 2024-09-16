@@ -20,6 +20,15 @@ public class ContactBook {
         return searchIndex(name) >= 0;
     }
 
+    /**
+     * Checks if the phone number exists or not
+     * @param phone the number we are looking for
+     * @return true if the number is saved, false if it isn't
+     */
+    public boolean hasNumber(int phone) {
+        return searchIndexN(phone) >= 0;
+    }
+
     public int getNumberOfContacts() {
         return counter;
     }
@@ -66,6 +75,24 @@ public class ContactBook {
         boolean found = false;
         while (i<counter && !found)
             if (contacts[i].getName().equals(name))
+                found = true;
+            else
+                i++;
+        if (found) result = i;
+        return result;
+    }
+
+    /**
+     * Searches for the given phone number in the array of contacts
+     * @param number the phone number we want to search for
+     * @return the position of the array where the number is saved first, -1 if it isn't saved
+     */
+    private int searchIndexN(int number) {
+        int i = 0;
+        int result = -1;
+        boolean found = false;
+        while (i<counter && !found)
+            if (contacts[i].getPhone() == number)
                 found = true;
             else
                 i++;

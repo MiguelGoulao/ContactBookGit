@@ -84,7 +84,7 @@ public class ContactBook {
 
     /**
      * Searches for the given phone number in the array of contacts
-     * @param number the phone number we want to search for
+     * @param number the phone number we are searching for
      * @return the position of the array where the number is saved first, -1 if it isn't saved
      */
     private int searchIndexN(int number) {

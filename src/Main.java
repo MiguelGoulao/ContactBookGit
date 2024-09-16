@@ -3,6 +3,7 @@ import contactBook.ContactBook;
 
 import java.util.Scanner;
 
+// We love Goulão
 
 public class Main {
     //Constantes que definem os comandos

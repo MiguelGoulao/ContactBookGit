@@ -177,9 +177,9 @@ public class Main {
 			}
 		}
 		if (found)
-			System.out.println("There are contacts that share phone numbers.");
+			System.out.println(REPEATS_EXIST);
 		else
-			System.out.println("All contacts have different phone numbers.");
+			System.out.println(REPEATS_NOT_EXIST);
 
 	}
 }

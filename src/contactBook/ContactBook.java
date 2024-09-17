@@ -92,6 +92,11 @@ public class ContactBook {
         return contacts[currentContact++];
     }
 
+    /**
+     * Finds the name of the contact with the given number
+     * @param number - the number of the contact to search
+     * @return the name of the contact with the number
+     */
     public String getContact(int number) {
         int result = searchIndexByNumber(number);
         if (result == -1)
@@ -118,6 +123,11 @@ public class ContactBook {
         return found;
     }
 
+    /**
+     * Searches for the index of the first contact with the given number
+     * @param number - the number to search
+     * @return the index of the contact
+     */
     private int searchIndexByNumber(int number) {
         int i = 0;
         int result = -1;

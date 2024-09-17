@@ -69,6 +69,23 @@ public class ContactBook {
         contacts[searchIndex(name)].setEmail(email);
     }
 
+    public boolean existsDuplicatePhones(){
+        boolean found = false;
+        int i = 0;
+        while(!found&&i<counter){
+            Contact current = contacts[i];
+            int j = i+1;
+            while(!found&&j<counter){
+                if(contacts[j].getPhone()==current.getPhone())
+                    found = true;
+                else
+                    j++;
+            }
+            i++;
+        }
+        return found;
+    }
+
     private int searchIndex(String name) {
         int i = 0;
         int result = -1;

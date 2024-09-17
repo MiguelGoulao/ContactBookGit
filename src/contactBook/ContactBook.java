@@ -2,17 +2,21 @@ package contactBook;
 
 import contactBook.Contact;
 
+import java.util.HashMap;
+
 public class ContactBook {
     static final int DEFAULT_SIZE = 100;
 
     private int counter;
     private Contact[] contacts;
     private int currentContact;
+    private final HashMap<Integer, Integer> numberOfContacts;
 
     public ContactBook() {
         counter = 0;
         contacts = new Contact[DEFAULT_SIZE];
         currentContact = -1;
+        numberOfContacts = new HashMap<>();
     }
 
     //Pre: name != null
@@ -30,11 +34,18 @@ public class ContactBook {
             resize();
         contacts[counter] = new Contact(name, phone, email);
         counter++;
+        if(numberOfContacts.containsKey(phone))
+            numberOfContacts.put(phone, numberOfContacts.get(phone) + 1);
+        else numberOfContacts.put(phone, 1);
+
     }
 
     //Pre: name != null && hasContact(name)
     public void deleteContact(String name) {
         int index = searchIndex(name);
+        if(numberOfContacts.get(getPhone(name)) > 1)
+            numberOfContacts.put(getPhone(name), numberOfContacts.get(getPhone(name)) - 1);
+        else numberOfContacts.remove(getPhone(name));
         for(int i=index; i<counter; i++)
             contacts[i] = contacts[i+1];
         counter--;
@@ -52,7 +63,15 @@ public class ContactBook {
 
     //Pre: name != null && hasContact(name)
     public void setPhone(String name, int phone) {
+        if(numberOfContacts.get(getPhone(name)) > 1)
+            numberOfContacts.put(getPhone(name), numberOfContacts.get(getPhone(name)) - 1);
+        else numberOfContacts.remove(getPhone(name));
+
         contacts[searchIndex(name)].setPhone(phone);
+
+        if(numberOfContacts.containsKey(phone))
+            numberOfContacts.put(phone, numberOfContacts.get(phone) + 1);
+        else numberOfContacts.put(phone, 1);
     }
 
     //Pre: name != null && hasContact(name)
@@ -93,4 +112,23 @@ public class ContactBook {
         return contacts[currentContact++];
     }
 
+    public boolean hasSamePhone() {
+        for(int number: numberOfContacts.values())
+            if(number > 1)
+                return true;
+        return false;
+    }
+
+    public boolean hasPhone(int phone) {
+        return numberOfContacts.containsKey(phone);
+    }
+
+    //Pre: hasPhone()
+    public Contact getFirstWithPhone(int phone) {
+        int i = 0;
+        while(contacts[i].getPhone() != phone){
+            i++;
+        }
+        return contacts[i];
+    }
 }

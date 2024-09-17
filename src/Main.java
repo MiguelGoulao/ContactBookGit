@@ -58,6 +58,12 @@ public class Main {
                 case LIST_CONTACTS:
                     listAllContacts(cBook);
                     break;
+                case GET_NUMBER:
+                    getNumber(in, cBook);
+                    break;
+                case EQUAL_PHONE:
+                    equalPhone(cBook);
+                    break;
                 default:
                     System.out.println(COMMAND_ERROR);
             }
@@ -161,7 +167,7 @@ public class Main {
         } else System.out.println(NUMBER_NOT_EXIST);
     }
 
-    private static void equalPhone(Scanner in, ContactBook cBook) {
+    private static void equalPhone(ContactBook cBook) {
         if (cBook.sameNumber())
             System.out.println(SHARE_NUMBERS);
         else

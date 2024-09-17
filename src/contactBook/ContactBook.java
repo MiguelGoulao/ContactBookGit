@@ -105,6 +105,11 @@ public class ContactBook {
             return contacts[result].getName();
     }
 
+    /**
+     * Checks if there are contacts with the same phone number
+     * @return <code>true</code> if there are at least two contacts with the same number
+     * <code>false</code> if all contacts have different numbers.
+     */
     public boolean sameNumber() {
         int i = 0;
         boolean found = false;

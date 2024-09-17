@@ -1,6 +1,5 @@
 package contactBook;
 
-import contactBook.Contact;
 
 public class ContactBook {
     static final int DEFAULT_SIZE = 100;
@@ -91,6 +90,60 @@ public class ContactBook {
     //Pre: hasNext()
     public Contact next() {
         return contacts[currentContact++];
+    }
+
+    /**
+     * Finds the name of the contact with the given number
+     * @param number - the number of the contact to search
+     * @return the name of the contact with the number
+     */
+    public String getContact(int number) {
+        int result = searchIndexByNumber(number);
+        if (result == -1)
+            return null;
+        else
+            return contacts[result].getName();
+    }
+
+    /**
+     * Checks if there are contacts with the same phone number
+     * @return <code>true</code> if there are at least two contacts with the same number
+     * <code>false</code> if all contacts have different numbers.
+     */
+    public boolean sameNumber() {
+        int i = 0;
+        boolean found = false;
+        int currentPhone = -1;
+        while(i < counter && !found) {
+            currentPhone = contacts[i].getPhone();
+            int j = i + 1;
+            while(j < counter && !found) {
+                if(currentPhone == contacts[j].getPhone())
+                    found = true;
+                else
+                    j++;
+            }
+            i++;
+        }
+        return found;
+    }
+
+    /**
+     * Searches for the index of the first contact with the given number
+     * @param number - the number to search
+     * @return the index of the contact
+     */
+    private int searchIndexByNumber(int number) {
+        int i = 0;
+        int result = -1;
+        boolean found = false;
+        while (i < counter && !found)
+            if (contacts[i].getPhone() == number)
+                found = true;
+            else
+                i++;
+        if (found) result = i;
+        return result;
     }
 
 }

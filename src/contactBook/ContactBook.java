@@ -93,4 +93,25 @@ public class ContactBook {
         return contacts[currentContact++];
     }
 
+    public int findNumber(int phone) {
+        boolean found = false;
+        int i=0;
+        int result = -1;
+        while (i<counter && !found) {
+            if(contacts[i].getPhone() == phone) {
+                found=true;
+            }else {
+                i++;
+            }
+        }
+        if(found) {
+            result=i;
+        }
+        return result;
+
+    }
+    //Pre: findNumber != -1
+    public String getNumberOwner(int pos) {
+        return contacts[pos].getName();
+    }
 }

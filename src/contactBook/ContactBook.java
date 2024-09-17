@@ -101,6 +101,24 @@ public class ContactBook {
             return contacts[result].getName();
     }
 
+    public boolean sameNumber() {
+        int i = 0;
+        boolean found = false;
+        int currentPhone = -1;
+        while(i < counter && !found) {
+            currentPhone = contacts[i].getPhone();
+            int j = i + 1;
+            while(j < counter && !found) {
+                if(currentPhone == contacts[j].getPhone())
+                    found = true;
+                else
+                    j++;
+            }
+            i++;
+        }
+        return found;
+    }
+
     private int searchIndexByNumber(int number) {
         int i = 0;
         int result = -1;

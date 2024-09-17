@@ -167,4 +167,19 @@ public class Main {
         }
         else System.out.println(BOOK_EMPTY);
     }
+
+    private static void haveRepeatedContact(ContactBook cBook) {
+		boolean found = false;
+		for (int i = 0; i < cBook.getNumberOfContacts(); i++) {
+			for (int j = i + 1; j < cBook.getNumberOfContacts() && !found; j++) {
+				if (cBook.getContact(i).getPhone() == cBook.getContact(j).getPhone())
+					found = true;
+			}
+		}
+		if (found)
+			System.out.println("There are contacts that share phone numbers.");
+		else
+			System.out.println("All contacts have different phone numbers.");
+
+	}
 }

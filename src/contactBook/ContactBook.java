@@ -111,4 +111,9 @@ public class ContactBook {
         return contacts[currentContact++];
     }
 
+    //Pre: index >= 0 && index < counter
+    public Contact getContact(int index) {
+    	return contacts[index];
+    }
+
 }

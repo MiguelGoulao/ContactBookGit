@@ -93,4 +93,31 @@ public class ContactBook {
         return contacts[currentContact++];
     }
 
+    public boolean checkSharedPhoneNumbers() {
+        int i = 0;
+        boolean found = false;
+        while(!found && i < counter) {
+            if(searchIndexPhoneNumber(contacts[i].getPhone())){
+                found = true;
+            }else {
+                i++;
+            }
+        }
+        return found;
+    }
+    private boolean searchIndexPhoneNumber(int phone) {
+        int i = 0;
+        int result = 0;
+        boolean found = false;
+        while (i < counter && !found) {
+            if (contacts[i].getPhone() == phone) {
+                result++;
+            } else if (result > 1) {
+                found = true;
+            } else {
+                i++;
+            }
+        }
+        return found;
+    }
 }

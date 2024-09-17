@@ -160,4 +160,11 @@ public class Main {
             System.out.println(contact);
         } else System.out.println(NUMBER_NOT_EXIST);
     }
+
+    private static void equalPhone(Scanner in, ContactBook cBook) {
+        if (cBook.sameNumber())
+            System.out.println(SHARE_NUMBERS);
+        else
+            System.out.println(DIFFERENT_NUMBERS);
+    }
 }

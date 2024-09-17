@@ -37,34 +37,25 @@ public class Main {
 
         while (!comm.equals(QUIT)){
             switch (comm) {
-                case ADD_CONTACT:
+                case ADD_CONTACT->
                     addContact(in,cBook);
-                    break;
-                case REMOVE_CONTACT:
+                case REMOVE_CONTACT->
                     deleteContact(in,cBook);
-                    break;
-                case GET_PHONE:
+                case GET_PHONE->
                     getPhone(in,cBook);
-                    break;
-                case GET_EMAIL:
+                case GET_EMAIL->
                     getEmail(in,cBook);
-                    break;
-                case SET_PHONE:
+                case SET_PHONE->
                     setPhone(in,cBook);
-                    break;
-                case SET_EMAIL:
+                case SET_EMAIL->
                     setEmail(in,cBook);
-                    break;
-                case LIST_CONTACTS:
+                case LIST_CONTACTS->
                     listAllContacts(cBook);
-                    break;
-                case GET_NUMBER:
+                case GET_NUMBER->
                     getNumber(in, cBook);
-                    break;
-                case EQUAL_PHONE:
+                case EQUAL_PHONE->
                     equalPhone(cBook);
-                    break;
-                default:
+                default->
                     System.out.println(COMMAND_ERROR);
             }
             System.out.println();

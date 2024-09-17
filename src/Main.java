@@ -64,8 +64,7 @@ public class Main {
             System.out.println();
             comm = getCommand(in);
         }
-        System.out.println(QUIT_MSG);
-        System.out.println();
+        System.out.print(QUIT_MSG);
         in.close();
     }
 

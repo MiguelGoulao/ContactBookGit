@@ -149,6 +149,11 @@ public class Main {
         else System.out.println(BOOK_EMPTY);
     }
 
+    /**
+     * The getNumber command
+     * @param in - The scanner
+     * @param cBook - The ContactBook object
+     */
     private static void getNumber(Scanner in, ContactBook cBook) {
         int number = in.nextInt();
         in.nextLine();
@@ -158,6 +163,10 @@ public class Main {
         } else System.out.println(NUMBER_NOT_EXIST);
     }
 
+    /**
+     * The equalPhone command
+     * @param cBook - The ContactBook object
+     */
     private static void equalPhone(ContactBook cBook) {
         if (cBook.sameNumber())
             System.out.println(SHARE_NUMBERS);

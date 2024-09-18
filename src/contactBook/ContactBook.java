@@ -93,4 +93,38 @@ public class ContactBook {
         return contacts[currentContact++];
     }
 
+    public boolean hasNumber (int number){
+        return searchPhone(number)>= 0;
+    }
+
+    private int searchPhone(int number) {
+        int i = 0;
+        int result = -1;
+        boolean found = false;
+        while (i<counter && !found)
+            if (contacts[i].getPhone()==number)
+                found = true;
+            else
+                i++;
+        if (found) result = i;
+        return result;
+    }
+
+    public String getContact(int number) {
+        return contacts[searchPhone(number)].getName();
+    }
+
+    public boolean checkPhoneNumbers()  {
+     boolean found = false;
+
+        for(int i = 0; i < counter; i++)
+            for(int j = i +1; j < counter; j++)
+            { if(contacts[i].getPhone()==contacts[j].getPhone())
+            { found = true;
+            } else;
+
+        }
+        return found;
+    }
+
 }

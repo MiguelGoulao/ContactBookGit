@@ -121,7 +121,7 @@ public class ContactBook {
             for(int j = i +1; j < counter; j++)
             { if(contacts[i].getPhone()==contacts[j].getPhone())
             { found = true;
-            } else;
+            }
 
         }
         return found;

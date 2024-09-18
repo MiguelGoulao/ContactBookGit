@@ -88,12 +88,18 @@ public class ContactBook {
         return result;
     }
 
+    /**
+     * Search for two identical phone numbers in the Contact Book
+     **/
     public boolean existsPhone() {
         int i = 0;
         boolean found = false;
+        //while there are contacts and we haven't found identical numbers
         while (i<counter && !found) {
             for(int j=i+1; j<counter; j++){
+                //for each two contacts check if they are equal
                 if(contacts[j].getPhone() == contacts[i].getPhone()) {
+                    //if they are equal stop the search and return true
                     found = true;
                     break;
                 }

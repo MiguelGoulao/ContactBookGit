@@ -3,6 +3,10 @@ import contactBook.ContactBook;
 
 import java.util.Scanner;
 
+/**
+ * @author Dimitrios Schoinas 65313 ; João Rivera 62877 e Diogo Mateus 65379
+ * Final version for the first project of Software Engineering
+ */
 
 public class Main {
     //Constantes que definem os comandos
@@ -58,9 +62,9 @@ public class Main {
                 case LIST_CONTACTS:
                     listAllContacts(cBook);
                     break;
-                    case GET_NAME:
-                        getName(in,cBook);
-                        break;
+                case GET_NAME:
+                    getName(in,cBook);
+                    break;
                 case EXISTS_PHONE:
                     existsPhone(cBook);
                         break;
@@ -158,22 +162,36 @@ public class Main {
         }
         else System.out.println(BOOK_EMPTY);
     }
+
+    /**
+     * The operation receives a phone number and returns the contact with
+     * that given number. In case there are several contacts with
+     * that same phone number, the oldest contact is returned.
+     * @param cBook the contact book to retrieve the contacts from.
+     * @param in the Scanner object used to read user input.
+     **/
     private static void getName(Scanner in, ContactBook cBook) {
         int phone;
         phone = in.nextInt(); in.nextLine();
 
+        //Checks if the Contact Book has that number
         if(!cBook.hasPhone(phone) )
             System.out.println(PHONE_NOT_EXIST);
         else
             System.out.println(cBook.getName(phone));
+            //If it has that number returns the contact associated
     }
 
+    /**
+     * Check if there are contacts with the same phone number
+     * @param cBook the contact book to retrieve the contacts from.
+     **/
     private static void existsPhone(ContactBook cBook) {
+        //Checks if the Contact Book has two identical numbers
         if(cBook.existsPhone())
             System.out.println(CONTACTS_SHARE_NUMBER);
         else
             System.out.println(CONTACTS_DIFFERENT_NUMBERS);
     }
-
 }
 

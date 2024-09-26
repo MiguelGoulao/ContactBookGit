@@ -60,6 +60,15 @@ public class ContactBook {
         contacts[searchIndex(name)].setEmail(email);
     }
 
+    public Contact lookupContact(int phone) {
+        for(int i = 0; i < contacts.length; i++){
+            if(contacts[i].getPhone() == phone) {
+                return contacts[i];
+            }
+        }
+        return null;
+    }
+
     private int searchIndex(String name) {
         int i = 0;
         int result = -1;
@@ -92,5 +101,14 @@ public class ContactBook {
     public Contact next() {
         return contacts[currentContact++];
     }
-
+    public boolean equalPhone() {
+        for(int i = 0; i < counter; i++){
+            for(int j = i + 1; j < counter; j++){
+                if(contacts[i].getPhone() == contacts[j].getPhone())
+                    return true;
+            }
+        }
+        return false;
+    }
+  
 }

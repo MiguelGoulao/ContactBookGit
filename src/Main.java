@@ -14,7 +14,7 @@ public class Main {
     public static final String SET_EMAIL      = "SE";
     public static final String LIST_CONTACTS  = "LC";
     public static final String QUIT           = "Q";
-
+    //NEW OLD
     //Constantes que definem as mensagens para o utilizador
     public static final String CONTACT_EXISTS = "contactBook.Contact already exists.";
     public static final String NAME_NOT_EXIST = "contactBook.Contact does not exist.";
@@ -32,29 +32,14 @@ public class Main {
 
         while (!comm.equals(QUIT)){
             switch (comm) {
-                case ADD_CONTACT:
-                    addContact(in,cBook);
-                    break;
-                case REMOVE_CONTACT:
-                    deleteContact(in,cBook);
-                    break;
-                case GET_PHONE:
-                    getPhone(in,cBook);
-                    break;
-                case GET_EMAIL:
-                    getEmail(in,cBook);
-                    break;
-                case SET_PHONE:
-                    setPhone(in,cBook);
-                    break;
-                case SET_EMAIL:
-                    setEmail(in,cBook);
-                    break;
-                case LIST_CONTACTS:
-                    listAllContacts(cBook);
-                    break;
-                default:
-                    System.out.println(COMMAND_ERROR);
+                case ADD_CONTACT -> addContact(in, cBook);
+                case REMOVE_CONTACT -> deleteContact(in, cBook);
+                case GET_PHONE -> getPhone(in, cBook);
+                case GET_EMAIL -> getEmail(in, cBook);
+                case SET_PHONE -> setPhone(in, cBook);
+                case SET_EMAIL -> setEmail(in, cBook);
+                case LIST_CONTACTS -> listAllContacts(cBook);
+                default -> System.out.println(COMMAND_ERROR);
             }
             System.out.println();
             comm = getCommand(in);

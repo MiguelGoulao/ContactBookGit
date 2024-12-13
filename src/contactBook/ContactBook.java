@@ -92,5 +92,27 @@ public class ContactBook {
     public Contact next() {
         return contacts[currentContact++];
     }
+  
+    public Contact getNumber (int phone){
+        for(int i = 0; i<counter; i++){
+            if(contacts[i].getPhone() == phone){
+                return contacts[i];
+            }
+        }
+        return null;
+    }
 
+    private boolean sameContact(){
+        boolean found = false;
+        int i = 0;
+        while (!found) {
+            for (int j = 0; j < counter; j++){
+                if (contacts[i].getPhone() == contacts[j].getPhone())
+                    found = true;
+            }
+            i++;
+        }
+        return found;
+    }
+  
 }

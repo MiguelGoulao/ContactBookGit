@@ -1,7 +1,5 @@
 package contactBook;
 
-import contactBook.Contact;
-
 public class ContactBook {
     static final int DEFAULT_SIZE = 100;
 
@@ -20,6 +18,10 @@ public class ContactBook {
         return searchIndex(name) >= 0;
     }
 
+    public boolean hasPhone ( int phone) { return searchPhoneIndex(phone) >= 0;}
+    public String getName(int phone){
+        return contacts[searchPhoneIndex(phone)].getName();
+    }
     public int getNumberOfContacts() {
         return counter;
     }
@@ -73,8 +75,42 @@ public class ContactBook {
         return result;
     }
 
+    private int searchPhoneIndex(int phone) {
+        int i = 0;
+        int result = -1;
+        boolean found = false;
+        while (i<counter && !found)
+            if (contacts[i].getPhone() == phone)
+                found = true;
+            else
+                i++;
+        if (found) result = i;
+        return result;
+    }
+
+    /**
+     * Search for two identical phone numbers in the Contact Book
+     **/
+    public boolean existsPhone() {
+        int i = 0;
+        boolean found = false;
+        //while there are contacts and we haven't found identical numbers
+        while (i<counter && !found) {
+            for(int j=i+1; j<counter; j++){
+                //for each two contacts check if they are equal
+                if(contacts[j].getPhone() == contacts[i].getPhone()) {
+                    //if they are equal stop the search and return true
+                    found = true;
+                    break;
+                }
+            }
+            i++;
+        }
+        return found;
+    }
+
     private void resize() {
-        Contact tmp[] = new Contact[2*contacts.length];
+        Contact[] tmp = new Contact[2*contacts.length];
         for (int i=0;i<counter; i++)
             tmp[i] = contacts[i];
         contacts = tmp;
@@ -92,5 +128,6 @@ public class ContactBook {
     public Contact next() {
         return contacts[currentContact++];
     }
+
 
 }

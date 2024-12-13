@@ -1,3 +1,5 @@
+Projeto feito por Dimitrios Schoinas 65313 ; João Rivera 62877  e Diogo Mateus 65379
+
 # ContactBookGit
 This is a starter kit for the first lab of the Software Engineering Course.
 Fork this project to make your own version of it.

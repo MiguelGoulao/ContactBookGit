@@ -101,8 +101,20 @@ public class Main {
     }
 
     private static void getNameByPhone(Scanner in, ContactBook cBook) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getNameByPhone'");
+        int phone = in.nextInt(); in.nextLine();
+        boolean found = false;
+
+        cBook.initializeIterator();
+        while (cBook.hasNext()){
+            Contact c = cBook.next();
+            if (c.getPhone() == phone){
+                System.out.println(c.getName());
+                found = true;
+            }
+        }
+        if (!found){
+            System.out.println(NUMBER_NOT_EXISTS);
+        }
     }
 
     private static String getCommand(Scanner in) {

@@ -1,6 +1,9 @@
 import contactBook.Contact;
 import contactBook.ContactBook;
+
+import java.util.HashSet;
 import java.util.Scanner;
+import java.util.Set;
 
 
 public class Main {
@@ -29,6 +32,7 @@ public class Main {
 
     public static final String NUMBER_NOT_EXISTS = "Phone number does not exist.";
     public static final String CONTACTS_SHARE_NUMBER = "There are contacts that share phone numbers.";
+    public static final String ALL_DIFFERENT = "All contacts have different phone numbers.";
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
@@ -62,7 +66,7 @@ public class Main {
                     getNameByPhone(in,cBook);
                     break;
                     case EXISTS_PHONE:
-                    ExistsPhone(in,cBook);
+                    ExistsPhone(cBook);
                     break;
                 default:
                     System.out.println(COMMAND_ERROR);
@@ -75,9 +79,25 @@ public class Main {
         in.close();
     }
 
-    private static void ExistsPhone(Scanner in, ContactBook cBook) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'ExistsPhone'");
+    private static void ExistsPhone(ContactBook cBook) {
+        Set<Integer> uniquePhoneNumber = new HashSet<>();
+        boolean hasDuplicates = false;
+
+        cBook.initializeIterator();
+        while (cBook.hasNext()){
+            Contact c = cBook.next();
+            int phoneNumber = c.getPhone();
+
+            if (!uniquePhoneNumber.add(phoneNumber)){
+                System.out.println(CONTACTS_SHARE_NUMBER);
+                hasDuplicates = true;
+                break;
+            }
+        }
+        if (!hasDuplicates){
+            System.out.println(ALL_DIFFERENT);
+        }
+
     }
 
     private static void getNameByPhone(Scanner in, ContactBook cBook) {
@@ -168,4 +188,7 @@ public class Main {
         }
         else System.out.println(BOOK_EMPTY);
     }
+
+
+
 }

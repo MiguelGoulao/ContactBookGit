@@ -27,7 +27,8 @@ public class Main {
     public static final String QUIT_MSG = "Goodbye!";
     public static final String COMMAND_ERROR = "Unknown command.";
     public static final String SHARED_NUMBER = "There are contacts that share phone numbers.";
-    public static final String ALL_DIFFERENT = "All contacts have different phone numbers";
+    public static final String ALL_DIFFERENT = "All contacts have different phone numbers.";
+    public static final String NUMBER_NOT_EXIST = "Phone number does not exist.";
 
 
     public static void main(String[] args) {
@@ -59,7 +60,7 @@ public class Main {
                     listAllContacts(cBook);
                     break;
                 case GET_NUMBER:
-                    getNumber(cBook);
+                    getNumber(in, cBook);
                     break;
                 case EXISTING_PHONE:
                     phoneExists(cBook);
@@ -75,8 +76,20 @@ public class Main {
         in.close();
     }
 
-    private static void getNumber(ContactBook cBook) {
-        return;
+    private static void getNumber(Scanner in, ContactBook cBook) {
+        int phone;
+
+        phone = in.nextInt(); in.nextLine();
+
+        Contact c = cBook.getContactWithNumber(phone);
+
+        if (c == null) {
+            System.out.println(NUMBER_NOT_EXIST);
+        }
+        else {
+            System.out.println(c.getName());
+        }
+
     }
 
     private static String getCommand(Scanner in) {

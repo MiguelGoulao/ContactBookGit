@@ -110,6 +110,7 @@ public class Main {
             if (c.getPhone() == phone){
                 System.out.println(c.getName());
                 found = true;
+                break;
             }
         }
         if (!found){

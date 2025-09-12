@@ -7,12 +7,10 @@ public class ContactBook {
 
     private int counter;
     private Contact[] contacts;
-    private int currentContact;
 
     public ContactBook() {
         counter = 0;
         contacts = new Contact[DEFAULT_SIZE];
-        currentContact = -1;
     }
 
     //Pre: name != null
@@ -80,17 +78,9 @@ public class ContactBook {
         contacts = tmp;
     }
 
-    public void initializeIterator() {
-        currentContact = 0;
-    }
-
-    public boolean hasNext() {
-        return (currentContact >= 0 ) && (currentContact < counter);
-    }
-
-    //Pre: hasNext()
-    public Contact next() {
-        return contacts[currentContact++];
+    public Iterator<Contact> iterator()
+    {
+        return new ContactIterator(contacts, counter);
     }
 
     public boolean phoneExists() {

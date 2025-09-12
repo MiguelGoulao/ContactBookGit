@@ -2,6 +2,7 @@ import java.util.Scanner;
 
 import contactBook.Contact;
 import contactBook.ContactBook;
+import contactBook.Iterator;
 
 
 public class Main {
@@ -167,9 +168,9 @@ public class Main {
 
     private static void listAllContacts(ContactBook cBook) {
         if (cBook.getNumberOfContacts() != 0) {
-            cBook.initializeIterator();
-            while( cBook.hasNext() ) {
-                Contact c = cBook.next();
+            Iterator<Contact> it =  cBook.iterator();
+            while( it.hasNext() ) {
+                Contact c = it.next();
                 System.out.println(c.getName() + "; " + c.getEmail() + "; " + c.getPhone());
             }
         }

@@ -1,7 +1,7 @@
+import java.util.Scanner;
+
 import contactBook.Contact;
 import contactBook.ContactBook;
-
-import java.util.Scanner;
 
 
 public class Main {
@@ -13,7 +13,8 @@ public class Main {
     public static final String SET_PHONE      = "SP";
     public static final String SET_EMAIL      = "SE";
     public static final String LIST_CONTACTS  = "LC";
-    public static final String GET_NUMBER = "GN";
+    public static final String GET_NUMBER     = "GN";
+    public static final String EXISTING_PHONE = "EP";
     public static final String QUIT           = "Q";
 
     //Constantes que definem as mensagens para o utilizador
@@ -25,6 +26,8 @@ public class Main {
     public static final String BOOK_EMPTY = "contactBook.Contact book empty.";
     public static final String QUIT_MSG = "Goodbye!";
     public static final String COMMAND_ERROR = "Unknown command.";
+    public static final String SHARED_NUMBER = "There are contacts that share phone numbers.";
+    public static final String ALL_DIFFERENT = "All contacts have different phone numbers";
 
 
     public static void main(String[] args) {
@@ -58,7 +61,10 @@ public class Main {
                 case GET_NUMBER:
                     getNumber(cBook);
                     break;
-                    default:
+                case EXISTING_PHONE:
+                    phoneExists(cBook);
+                    break;
+                default:
                     System.out.println(COMMAND_ERROR);
             }
             System.out.println();
@@ -155,5 +161,11 @@ public class Main {
             }
         }
         else System.out.println(BOOK_EMPTY);
+    }
+
+    private static void phoneExists(ContactBook cBook) {
+        if (cBook.phoneExists())
+            System.out.println(SHARED_NUMBER);
+        else System.out.println(ALL_DIFFERENT);
     }
 }

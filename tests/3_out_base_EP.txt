@@ -1,0 +1,36 @@
+contactBook.Contact book empty.
+
+All contacts have different phone numbers.
+
+contactBook.Contact added.
+
+contactBook.Contact added.
+
+contactBook.Contact added.
+
+Joana Segundos; Joana.Dias@fct.unl.pt; 214872134
+Joana Dias; Joana.Dias@fct.unl.pt; 253253253
+Joana Horas; Joana.Horas@gmail.com; 213453121
+
+All contacts have different phone numbers.
+
+contactBook.Contact added.
+
+Joana Segundos; Joana.Dias@fct.unl.pt; 214872134
+Joana Dias; Joana.Dias@fct.unl.pt; 253253253
+Joana Horas; Joana.Horas@gmail.com; 213453121
+Joana Minutos; Joana.Minutos@gmail.com; 253253253
+
+There are contacts that share phone numbers.
+
+contactBook.Contact updated.
+
+All contacts have different phone numbers.
+
+Joana Segundos; Joana.Dias@fct.unl.pt; 214872134
+Joana Dias; Joana.Dias@fct.unl.pt; 253253253
+Joana Horas; Joana.Horas@gmail.com; 213453121
+Joana Minutos; Joana.Minutos@gmail.com; 253253254
+
+Goodbye!
+

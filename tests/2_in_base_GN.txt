@@ -1,0 +1,27 @@
+LC
+GN
+123456789
+AC
+Joana Dias
+253253253
+Joana.Dias@fct.unl.pt
+AC
+Joana Horas
+213453121
+Joana.Horas@gmail.com
+LC
+GN
+253253253
+GN
+123456789
+GN
+213453121
+AC
+Joana Minutos
+253253253
+Joana.Minutos@gmail.com
+LC
+GN
+253253253
+LC
+Q

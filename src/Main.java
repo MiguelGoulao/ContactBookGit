@@ -13,6 +13,7 @@ public class Main {
     public static final String SET_PHONE      = "SP";
     public static final String SET_EMAIL      = "SE";
     public static final String LIST_CONTACTS  = "LC";
+    public static final String GET_NUMBER = "GN";
     public static final String QUIT           = "Q";
 
     //Constantes que definem as mensagens para o utilizador
@@ -24,6 +25,7 @@ public class Main {
     public static final String BOOK_EMPTY = "contactBook.Contact book empty.";
     public static final String QUIT_MSG = "Goodbye!";
     public static final String COMMAND_ERROR = "Unknown command.";
+
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
@@ -53,7 +55,10 @@ public class Main {
                 case LIST_CONTACTS:
                     listAllContacts(cBook);
                     break;
-                default:
+                case GET_NUMBER:
+                    getNumber(cBook);
+                    break;
+                    default:
                     System.out.println(COMMAND_ERROR);
             }
             System.out.println();
@@ -62,6 +67,10 @@ public class Main {
         System.out.println(QUIT_MSG);
         System.out.println();
         in.close();
+    }
+
+    private static void getNumber(ContactBook cBook) {
+        return;
     }
 
     private static String getCommand(Scanner in) {

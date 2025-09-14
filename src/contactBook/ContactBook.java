@@ -24,6 +24,15 @@ public class ContactBook {
         return counter;
     }
 
+    public Contact getNumber(int phone) {
+        for (int i = 0; i < counter; i++) {
+            if (contacts[i].getPhone() == phone) {
+                return contacts[i];
+            }
+        }
+        return null;
+    }
+
     //Pre: name!= null && !hasContact(name)
     public void addContact(String name, int phone, String email) {
         if (counter == contacts.length)

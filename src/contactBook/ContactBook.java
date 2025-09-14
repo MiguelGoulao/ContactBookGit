@@ -92,5 +92,16 @@ public class ContactBook {
     public Contact next() {
         return contacts[currentContact++];
     }
+    public Contact getContactByPhone(int phone) {
+        Contact c = null;
+        initializeIterator();
+        while(hasNext()){
+           c = next();
+           if(c.getPhone() == phone){
+               return c;
+           }
+        }
+        return null;
+    }
 
 }

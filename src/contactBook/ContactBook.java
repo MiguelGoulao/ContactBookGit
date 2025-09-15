@@ -1,5 +1,6 @@
 package contactBook;
 
+
 import contactBook.Contact;
 
 public class ContactBook {

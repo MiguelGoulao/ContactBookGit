@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+<<<<<<< HEAD
       <module fileurl="file://$PROJECT_DIR$/.idea/ContactBookGit.iml" filepath="$PROJECT_DIR$/.idea/ContactBookGit.iml" />
+=======
+      <module fileurl="file://$PROJECT_DIR$/ContactBookGit.iml" filepath="$PROJECT_DIR$/ContactBookGit.iml" />
+>>>>>>> dcd33e0e0ed2deba8f6acae87a1397e4dd8bff84
     </modules>
   </component>
 </project>

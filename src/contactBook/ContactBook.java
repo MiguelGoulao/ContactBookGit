@@ -93,4 +93,19 @@ public class ContactBook {
         return contacts[currentContact++];
     }
 
+    public boolean hasSameContact(){
+        initializeIterator();
+        Contact current,compare;
+        for(int i=0;i<getNumberOfContacts();i++){
+            current = contacts[i];
+            do{
+                compare = next();
+                if(current.getPhone()==compare.getPhone()&& !current.equals(compare)){
+                    return true;
+                }
+            }while(hasNext());
+            initializeIterator();
+        }
+        return false;
+    }
 }

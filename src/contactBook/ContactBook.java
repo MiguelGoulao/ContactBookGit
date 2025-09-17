@@ -93,6 +93,7 @@ public class ContactBook {
         return contacts[currentContact++];
     }
 
+
     public boolean hasSameContact(){
         initializeIterator();
         Contact current,compare;
@@ -108,4 +109,23 @@ public class ContactBook {
         }
         return false;
     }
+
+    public boolean hasPhone (int phoneNumber){
+        for (int i = 0; i < counter; i++) {
+            if (contacts[i].getPhone() == phoneNumber) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public Contact getContactByPhone(int phoneNumber) {
+        for (int i = 0; i < counter; i++) {
+            if (contacts[i].getPhone() == phoneNumber) {
+                return contacts[i];
+            }
+        }
+        return null;
+    }
+
 }

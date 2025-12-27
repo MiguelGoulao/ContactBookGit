@@ -1,3 +1,5 @@
+package main;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
@@ -12,23 +14,23 @@ import org.junit.Before;
 import org.junit.Test;
 
 /**
- * A classe Tests especifica um conjunto de testes implementado recorrendo à ferramenta 
- * JUnit. Estes testes usam como input os ficheiros de teste do Mooshak, gerando, como
- * output, o resultado esperado na execução desses testes.
- * A classe está implementada para os testes do problema do contactBook.ContactBook, a usar na primeira
- * aula prática de POO. No entanto, a sua adaptação para os restantes problemas a realizar 
- * ao longo do semestre é trivial.
- * Para poder usar esta classe tem de incluir no seu ambiente de execução a biblioteca JUnit 4.
- * Veja como o pode fazer na primeira aula prática do semestre!
+ * The main.Tests class specifies a set of tests implemented using the JUnit tool.
+ * These tests use Mooshak test files as input, generating the expected result of these tests as output.
+ * <p>
+ * The class is implemented for testing the contactBook.ContactBook problem, to be used in the first
+ * practical class on OOP. However, adapting it to the other problems to be carried out
+ * throughout the semester is trivial.
+ * In order to use this class, you must include the JUnit 4 library in your execution environment.
+ * See how you can do this in the first practical class of the semester!
  */
 public class Tests {
     /**
-     * Use as linhas que se seguem para especificar os testes que vai realizar.
-     * Neste ficheiro de exemplo, criado para o projecto contactBook.ContactBook, apenas temos
-     * 3 testes para realizar. Para cada ficheiro de input, existe um ficheiro de
-     * output correspondente. Por exemplo, o resultado esperado para o teste
-     * 1_in_base.txt é 1_out_base.txt . Não tem de fazer mais nada no resto da classe.
-     * Basta configurar esta sequência de testes!
+     * Use the following lines to specify the tests you will perform.
+     * In this example file, created for the contactBook.ContactBook project, we only have
+     * 3 tests to perform. For each input file, there is a corresponding output file.
+     * For example, the expected result for the test
+     * 1_in_base.txt is 1_out_base.txt . You do not need to do anything else in the rest of the class.
+     * Just set up this test sequence!
      */
     @Test public void test1() { test("1_in_base.txt","1_out_base.txt"); }
     @Test public void test2() { test("2_in_base_GN.txt","2_out_base_GN.txt"); }
@@ -72,7 +74,7 @@ public class Tests {
         try {
             Locale.setDefault(Locale.US);
             System.setIn(new FileInputStream(input));
-            Class<?> mainClass = Class.forName("Main");
+            Class<?> mainClass = Class.forName("main.Main");
             mainClass.getMethod("main", String[].class).invoke(null, new Object[] { new String[0] });
         } catch (Exception e) {
             e.printStackTrace();
